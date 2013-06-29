@@ -1,1 +1,8 @@
 nuggets of code
+
+How to make a string variable with the contents of a text file (making a path to a file from Documents):
+    uzipPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //This is the path to the "Documents" folder of the app
+    uzipFilePath = [NSString stringWithFormat:@"%@/%@", [uzipPath objectAtIndex:0], @"Theme1.zip"]; //this is the directory to the folder "Theme1.zip" (Documents/Theme1.zip is the string value being declared)
+    NSString *FeedURLPath = [NSString stringWithFormat:@"%@/%@", uzipFilePath, @"now.txt"]; //this is the directory to the file "now.txt" (Documents/Theme1.zip/now.txt)
+    NSString *contentOfFile = [NSString stringWithContentsOfFile:FeedURLPath encoding:NSUTF8StringEncoding error:nil]; //makes a string value with the contents of the file in the directory "FeedURLPath"
+    
