@@ -6,3 +6,14 @@ How to make a string variable with the contents of a text file (making a path to
     NSString *FeedURLPath = [NSString stringWithFormat:@"%@/%@", uzipFilePath, @"now.txt"]; //this is the directory to the file "now.txt" (Documents/Theme1.zip/now.txt)
     NSString *contentOfFile = [NSString stringWithContentsOfFile:FeedURLPath encoding:NSUTF8StringEncoding error:nil]; //makes a string value with the contents of the file in the directory "FeedURLPath"
     
+How to pull data from a JSON file:
+    FeedURLPath = [NSString stringWithFormat:@"%@/%@",uzipFilePath, @"geo.json"]; //this is the directory to the file "geo.json" (Documents/Theme1.zip/geo.json)
+    NSData *myData = [[NSData alloc]initWithContentsOfFile:contentOfFile]; //takes the data from the file in the "FeedURLPath" directory
+    NSDictionary *myJSON = [NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingMutableContainers error:nil]; //makes a dictionary ({ }), kinda like an array ([ ])  using the data from "myData"
+    NSArray *Geolocations = [myJSON objectForKey:@"geolocations"]; //makes a multidimensional array using one of the arrays from the JSON file
+    NSArray *jsonArray = (NSArray *)Geolocations; //necessary, for some reason
+    NSLog(@"%i", [jsonArray count]); //outputs the number of arrays in "jsonArray"
+    for (id element in jsonArray) //outputs the arrays from "jsonArray"
+    {
+        NSLog(@"Element: %@", [element description]);
+    }
