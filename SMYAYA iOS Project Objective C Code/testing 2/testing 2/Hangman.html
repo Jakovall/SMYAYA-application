@@ -1,0 +1,136 @@
+<html>
+<head>
+<script type="text/javascript">
+
+	var hangmeasure = 0; //measures how many guesses you have left until GAME OVER!!!1!!1!!!!!!
+	var wordlist = new Array("HELLO", "KITTEN", "EQUINE", "TOTALITARIAN", "ZEAL"); //the list of words the computer will choose from
+	var pickedword; //the word the computer picked
+	var pickedarray; //the array form of "pickedword"
+	var guesswork; //the user's inputted guess
+	var guessarray; //the user's inputted guess turned array of characters
+	var checkguess; //checks to see if the user successfully guessed a letter
+	
+	window.onload = NewGame; //runs the NewGame function when the page loads
+	
+	function NewGame() //starts a new game
+	{
+		hangmeasure = 0;
+		document.getElementById("condemmed").innerHTML = '<img src="http://www.englishlanguageworld.com/Beginning_English_Lesson2/hangman0.gif">';
+		document.getElementById("letterguess").value = "";
+		document.getElementById("wordguess").value = "";
+		document.getElementById("inletter").disabled = false;
+		document.getElementById("inword").disabled = false;
+	
+		pickedword = wordlist[Math.floor(Math.random() * wordlist.length)]; //picks a word from the list above and splits it into an array
+		pickedarray = pickedword.split("");
+		
+		guesswork = "?"; //'guesswork' and 'checkguess' are initialized identically
+		checkguess = "?";
+		for(var counter = 1; counter < pickedarray.length; counter++) //adds an additional '?' until the number of '?'s matches the number of characters in the chosen word
+		{
+			guesswork = guesswork.concat("?");
+			checkguess = checkguess.concat("?");
+		}
+			
+		document.getElementById("letters").innerHTML = guesswork; //outputs the "blank" word
+	}
+	
+	var checklength; //checks the length of the inputted string
+	var ltrsused = new Array();
+	function LetterCompare()
+	{
+		checklength = document.getElementById("letterguess").value.split(""); //splits the inputted letter guess into an array to check for length
+		if(checklength.length != 1) // if the inputted guess is more than one character, then THEY SHALL NOT PASS!!!!
+			alert('ERROR: Please insert one character into the box!');
+		
+		else 
+		{
+			guessarray = guesswork.split("");
+			
+			for(var counter = 0; counter < pickedarray.length; counter++)
+			{
+				if(document.getElementById("letterguess").value.toUpperCase() == pickedarray[counter])
+				{
+					guessarray[counter] = pickedarray[counter];
+				}
+			}
+		}
+		
+		document.getElementById("ltrsguessed").innerHTML = document.getElementById("ltrsguessed").innerHTML.concat(
+		document.getElementById("letterguess").value.toUpperCase() + ",");
+				
+		UpdateString();
+	}
+	
+	function WordCompare()
+	{
+		checklength = document.getElementById("wordguess").value.split(""); //splits the inputted letter guess into an array to check for length
+		if(checklength.length != pickedarray.length) // if the inputted guess is more than one character, then THEY SHALL NOT PASS!!!!
+			alert('ERROR: Inputted word is the wrong length!');
+		
+		else 
+		{
+			guessarray = guesswork.split("");
+			
+			for(var counter = 0; counter < pickedarray.length; counter++)
+			{
+				if(document.getElementById("wordguess").value.split("")[counter].toUpperCase() == pickedarray[counter])
+				{
+					guessarray[counter] = pickedarray[counter];
+				}
+			}
+		}
+		
+		UpdateString();
+	} 
+	
+	function UpdateString()
+	{
+		guesswork = guessarray[0];
+		for(var counter = 1; counter < pickedarray.length; counter++)
+			guesswork = guesswork.concat(guessarray[counter]);
+			
+		document.getElementById("letters").innerHTML = guesswork;
+		
+		if(checkguess == guesswork)
+		{
+			hangmeasure++;
+			document.getElementById("condemmed").innerHTML = '<img src="http://www.englishlanguageworld.com/Beginning_English_Lesson2/hangman' + hangmeasure + '.gif">';
+		}
+		
+		if(hangmeasure == 6)
+		{
+			alert('You lose! Click "New Game" to play again.');
+			document.getElementById("inletter").disabled = true;
+			document.getElementById("inword").disabled = true;
+		}
+			
+		if(guesswork == pickedword)
+		{
+			alert('You win! Click "New Game to play again"')
+			document.getElementById("inletter").disabled = true;
+			document.getElementById("inword").disabled = true;
+		}
+		
+		checkguess = guesswork;
+	}
+	
+</script>
+</head>
+
+<body>
+
+	<input type="button" value="New Game" onclick="NewGame();">
+
+	<div id="condemmed"> <img src="http://www.englishlanguageworld.com/Beginning_English_Lesson2/hangman0.gif"> </div>
+	<div id="letters" style="font-size:50px;"> Press 'New Game' to begin! </div>
+	
+	<input type="text" id="letterguess">
+	<input type="button" value="Guess A Letter!" onclick="LetterCompare();" id="inletter" disabled>
+	<input type="text" id="wordguess">
+	<input type="button" value="Guess The Word!" onclick="WordCompare();" id="inword" disabled>
+	
+	<div id="ltrsguessed" style="font-size:50px;"> Letters Guessed: </div>
+
+</body>
+</html>

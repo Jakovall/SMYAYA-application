@@ -1,0 +1,1 @@
+{"LAT": "41.420337","LONG": "-78.549356","TITLE": "Queen of the World Church","SUBTITLE": "134 Queens Rd, St Marys, PA"}
