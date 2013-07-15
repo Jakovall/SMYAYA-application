@@ -8,9 +8,9 @@ If you have any questions, create a new issue with specifics.
 ## Screen Shots
 ![Icon](http://i.imgur.com/AQsXxHV.png)
 ![Figure Illustration of Schemas](http://i.imgur.com/SfKkCtD.jpg)
-![Menu](http://i.imgur.com/kAmuTnb.jpg)
-![Geo](http://i.imgur.com/DUO3F72.jpg)
-![Download](http://i.imgur.com/krXcM7K.jpg)
+![Menu](http://i.imgur.com/kAmuTnb.jpg?1)
+![Geo](http://i.imgur.com/DUO3F72.jpg?1)
+![Download](http://i.imgur.com/krXcM7K.jpg?1)
 ![Now](http://i.imgur.com/l7uaR1k.jpg)
 
 ## Getting Started
