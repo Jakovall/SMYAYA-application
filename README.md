@@ -8,9 +8,10 @@ If you have any questions, create a new issue with specifics.
 ## Screen Shots
 ![Icon](http://i.imgur.com/AQsXxHV.png)
 ![Figure Illustration of Schemas](http://i.imgur.com/SfKkCtD.jpg)
-![Menu](http://i.imgur.com/B5mIwcu.png?1)
-![Geo](http://i.imgur.com/ztyxIx4.png?1)
-![Download](http://i.imgur.com/h94GCoz.png?1)
+![Menu](http://i.imgur.com/kAmuTnb.jpg)
+![Geo](http://i.imgur.com/DUO3F72.jpg)
+![Download](http://i.imgur.com/krXcM7K.jpg)
+![Now](http://i.imgur.com/l7uaR1k.jpg)
 
 ## Getting Started
 No special steps required for the XCode project. Just download it and run it in XCode.
@@ -21,7 +22,7 @@ What if we changed the whole way young people tapped into Church news? Proudly p
 ## License
 Any code written for this project by staff of St. Marys churches is released into the public domain. This would include code for the web server assets such as schema builder which was written by John Amoratis. 
 
-The specific Objective C code for this app was written by Chris Dollinger who is not a staff member. This is his code written as a volunteer source code contributor, and he has released it all under the GNU GPL license. [GNU GPL License](http://www.gnu.org/licenses/).
+The specific Objective C code for this app was written by Chris Dollinger who is not a staff member. This is his code written as a volunteer source code contributor, and he has released it all under the GNU GPL license. [GNU GPL License](http://www.gnu.org/licenses/).  Kurt Floyd has released his graphic contributions to this project into the public domain. This includes icon and other graphic assets as designated.
 
 If you make a derivative app from this code, please make substantial changes and improvements.
 
@@ -34,6 +35,8 @@ UI feedback that schema has been successfully downloaded
 
 Protocol helper such as smyaya:// for download links to schemas that would directly open the app and start the download even if the link for a new schema was tapped in an e-mail
 
-List of recently used schemas to facilitate switching back and forth
+List of recently used schemas to facilitate switching between various schemas
 
-Schema builder baked right into the app itself
+Having Scheme-builda baked right into the app itself
+
+(with thanks to [Artisan iOS](https://github.com/nmock/artisan-ios) for basic readme doc style.)
