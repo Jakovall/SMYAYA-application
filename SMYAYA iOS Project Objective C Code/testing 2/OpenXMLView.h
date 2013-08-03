@@ -30,6 +30,7 @@ Kurt Floyd, Lead Graphic Designer
 #import <UIKit/UIKit.h>
 
 @interface OpenXMLView : UIViewController //HELLO WORLD!!!!!!!!!
+//additional test comment
 {
     IBOutlet UILabel *AppBgColorLabel;
     IBOutlet UILabel *AppNameLabel;
