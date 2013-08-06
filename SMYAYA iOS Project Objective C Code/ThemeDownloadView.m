@@ -43,6 +43,8 @@ NSString *appendedPath;
 NSURL *url;
 NSData *urlData;
 
+NSString *urlLink;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -62,11 +64,34 @@ NSData *urlData;
                              topCapHeight:0.0]; //the image that will be displayed when the user pushes the button
     
     //gives the button the images declared above
-    [self.infoButton setBackgroundImage:normalImage forState:UIControlStateNormal];
-    [self.infoButton setBackgroundImage:pressedImage forState:UIControlStateHighlighted];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    urlLink = [[NSUserDefaults standardUserDefaults] objectForKey:@"schemaToDownload"];
+    
+    if (urlLink != nil)
+    {
+        UIAlertView *Confirm = [[UIAlertView alloc] initWithTitle:nil message:@"Are you sure you want to download this schema?" delegate:self cancelButtonTitle:@"Yes!" otherButtonTitles:@"No!", nil];
+        [Confirm show];
+    }
+
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"schemaToDownload"];
+
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        NSLog([NSString stringWithFormat:@"%ld", (long)buttonIndex]);
+        
+        self.DownloadLink.text = urlLink;
+        [self DownloadAction:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning

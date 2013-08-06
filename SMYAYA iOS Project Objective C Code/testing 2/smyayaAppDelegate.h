@@ -28,6 +28,7 @@ Kurt Floyd, Lead Graphic Designer
 */
 
 #import <UIKit/UIKit.h>
+#import "ThemeDownloadView.h"
 
 @interface smyayaAppDelegate : UIResponder <UIApplicationDelegate>
 
