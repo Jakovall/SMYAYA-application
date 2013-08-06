@@ -30,11 +30,12 @@ Kurt Floyd, Lead Graphic Designer
 #import <UIKit/UIKit.h>
 #import "ZipArchive.h"
 
-@interface ThemeDownloadView : UIViewController
+@interface ThemeDownloadView : UIViewController <UIAlertViewDelegate>
+{
+    
+}
 
 @property (strong, nonatomic) IBOutlet UITextField *DownloadLink;
-
-@property (strong, nonatomic) IBOutlet UIButton *infoButton;
 
 - (IBAction)DownloadAction:(id)sender;
 - (void)fetchedData;
