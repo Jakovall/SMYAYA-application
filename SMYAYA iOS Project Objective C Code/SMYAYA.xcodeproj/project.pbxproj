@@ -57,7 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		52679F1E175A5852005D8722 /* Saint Marys Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Saint Marys Church.app"; path = "SM Catholic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52679F1E175A5852005D8722 /* SM Catholic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SM Catholic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52679F22175A5852005D8722 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		52679F24175A5852005D8722 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		52679F26175A5852005D8722 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -159,7 +159,7 @@
 		52679F1F175A5852005D8722 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				52679F1E175A5852005D8722 /* Saint Marys Church.app */,
+				52679F1E175A5852005D8722 /* SM Catholic.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 			);
 			name = "testing 2";
 			productName = "testing 2";
-			productReference = 52679F1E175A5852005D8722 /* Saint Marys Church.app */;
+			productReference = 52679F1E175A5852005D8722 /* SM Catholic.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -487,7 +487,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testing 2/testing 2-Prefix.pch";
 				INFOPLIST_FILE = "testing 2/testing 2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "SM Catholic";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -502,7 +502,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testing 2/testing 2-Prefix.pch";
 				INFOPLIST_FILE = "testing 2/testing 2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "SM Catholic";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
