@@ -37,6 +37,11 @@ Kurt Floyd, Lead Graphic Designer
 
 @property (strong, nonatomic) IBOutlet UITextField *DownloadLink;
 
+@property (retain, nonatomic) NSString *urlstr;
+@property (retain, nonatomic) NSArray *keyArray;
+@property (retain, nonatomic) NSMutableArray *keyMutableArray;
+@property (retain, nonatomic) NSMutableDictionary *dict;
+
 - (IBAction)DownloadAction:(id)sender;
 - (void)fetchedData;
 - (void)processData;

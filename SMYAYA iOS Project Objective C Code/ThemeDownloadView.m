@@ -34,6 +34,7 @@ Kurt Floyd, Lead Graphic Designer
 @end
 
 @implementation ThemeDownloadView
+@synthesize urlstr,title,keyArray,keyMutableArray,dict;
 
 NSArray *paths;
 NSArray *uzipPath;
