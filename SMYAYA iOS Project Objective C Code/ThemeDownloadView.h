@@ -29,6 +29,7 @@ Kurt Floyd, Lead Graphic Designer
 
 #import <UIKit/UIKit.h>
 #import "ZipArchive.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ThemeDownloadView : UIViewController <UIAlertViewDelegate>
 {
@@ -36,7 +37,8 @@ Kurt Floyd, Lead Graphic Designer
 }
 
 @property (strong, nonatomic) IBOutlet UITextField *DownloadLink;
-
+@property (strong, nonatomic) IBOutlet UITableView *table;
+@property (retain, nonatomic) NSString *title;
 @property (retain, nonatomic) NSString *urlstr;
 @property (retain, nonatomic) NSArray *keyArray;
 @property (retain, nonatomic) NSMutableArray *keyMutableArray;

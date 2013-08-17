@@ -34,7 +34,7 @@ Kurt Floyd, Lead Graphic Designer
 @end
 
 @implementation ThemeDownloadView
-@synthesize urlstr,title,keyArray,keyMutableArray,dict;
+@synthesize table,urlstr,title,keyArray,keyMutableArray,dict;
 
 NSArray *paths;
 NSArray *uzipPath;
@@ -63,6 +63,9 @@ NSString *urlLink;
     UIImage *pressedImage = [[UIImage imageNamed:@"infoImage"]
                              stretchableImageWithLeftCapWidth:1.0
                              topCapHeight:0.0]; //the image that will be displayed when the user pushes the button
+    keyMutableArray = [[NSMutableArray alloc] init];
+    
+    self.table.layer.borderWidth = 2;
     
     //gives the button the images declared above
     
@@ -132,8 +135,63 @@ NSString *urlLink;
     
     NSString *FeedURLPath = [NSString stringWithFormat:@"%@/%@", uzipFilePath, @"now.txt"]; //this is the directory to the file "now.txt" (Documents/Theme1.zip/now.txt)
     NSString *contentOfFile = [NSString stringWithContentsOfFile:FeedURLPath encoding:NSUTF8StringEncoding error:nil]; //makes a string value with the contents of the file in the directory "FeedURLPath"
+    NSString *titlePath = [NSString stringWithFormat:@"%@/%@", uzipFilePath, @"title.txt"]; //this is the directory to the file "now.txt" (Documents/Theme1.zip/now.txt)
+    
+    NSString *titleofFile = [NSString stringWithContentsOfFile:titlePath encoding:NSUTF8StringEncoding error:nil]; //makes a string value with the contents of the file in the directory "FeedURLPat
+
     [[NSUserDefaults standardUserDefaults] setValue:contentOfFile forKey:@"NewsURL"];
+    dict =[[NSMutableDictionary alloc] init];
+    if(![[NSUserDefaults standardUserDefaults] valueForKey:@"urltitle"])
+    {
+        dict = [[NSUserDefaults standardUserDefaults] valueForKey:@"urltitle"];
+    }
+    //[dict setObject:contentOfFile forKey:titleofFile];
+    
+    [dict setObject:self.DownloadLink.text forKey:titleofFile];
+    [[NSUserDefaults standardUserDefaults] setValue:self.DownloadLink.text forKey:titleofFile];
+    
+    [[NSUserDefaults standardUserDefaults] setValue:dict forKey:@"urltitle"];
+    [keyMutableArray addObject:titleofFile];
+    [table reloadData];
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return keyMutableArray.count;
+}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *MyIdentifier = @"MyIdentifier";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:MyIdentifier];
+    }
+    
+    cell.textLabel.text = [keyMutableArray objectAtIndex:indexPath.row];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *stringVal = [[NSUserDefaults standardUserDefaults] valueForKey:[keyMutableArray objectAtIndex:indexPath.row]];
+    
+    NSLog(@"string value is :%@",stringVal);
+    self.DownloadLink.text = stringVal;
+    
+    [self DownloadAction:stringVal];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 
 - (IBAction)LowerKeyboard:(id)sender
 {
