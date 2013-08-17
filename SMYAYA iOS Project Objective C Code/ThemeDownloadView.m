@@ -151,6 +151,14 @@ NSString *urlLink;
     [[NSUserDefaults standardUserDefaults] setValue:self.DownloadLink.text forKey:titleofFile];
     
     [[NSUserDefaults standardUserDefaults] setValue:dict forKey:@"urltitle"];
+    
+    for(int i=0;i<[keyMutableArray count]; i++){
+        
+        if(([[keyMutableArray objectAtIndex:i] isEqualToString:titleofFile])){
+        
+            [keyMutableArray removeObjectAtIndex:i];
+        }
+    }
     [keyMutableArray addObject:titleofFile];
     [table reloadData];
 }
