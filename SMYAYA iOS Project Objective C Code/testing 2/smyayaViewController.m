@@ -26,6 +26,7 @@ NSString *geoPath;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -46,8 +47,17 @@ NSString *geoPath;
         MKCoordinateRegion startupRegion;
 
         CLLocationCoordinate2D center;
-        center.latitude = 41.427926;
-        center.longitude = -78.561001;
+        
+        
+        if([Geolocations count]){
+            
+            NSDictionary *InGeolocationsAtStartingIndex = [Geolocations objectAtIndex:0];
+            
+            center.latitude = [[InGeolocationsAtStartingIndex objectForKey:@"geolat"] doubleValue];
+            center.longitude = [[InGeolocationsAtStartingIndex objectForKey:@"geolong"] doubleValue];
+            
+       // center.latitude = 41.427926;
+       // center.longitude = -78.561001;
 
         MKCoordinateSpan span;
         span.latitudeDelta = SPAN;
@@ -55,7 +65,10 @@ NSString *geoPath;
 
         startupRegion.center = center;
         startupRegion.span = span;
-
+            
+        }
+        
+    
         [self.pinSetter setRegion:startupRegion animated:YES];
 
         NSMutableArray *locations = [[NSMutableArray alloc] init];
