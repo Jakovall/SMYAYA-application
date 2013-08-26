@@ -33,7 +33,8 @@ Kurt Floyd, Lead Graphic Designer
 
 @interface ThemeDownloadView : UIViewController <UIAlertViewDelegate>
 {
-    
+    NSMutableData *_responseData;
+    UIActivityIndicatorView*  spinner;
 }
 
 @property (strong, nonatomic) IBOutlet UITextField *DownloadLink;
@@ -43,6 +44,10 @@ Kurt Floyd, Lead Graphic Designer
 @property (retain, nonatomic) NSArray *keyArray;
 @property (retain, nonatomic) NSMutableArray *keyMutableArray;
 @property (retain, nonatomic) NSMutableDictionary *dict;
+
+
+@property (retain, nonatomic) NSArray *allTitles;
+@property (retain, nonatomic)IBOutlet UIActivityIndicatorView*  spinner;
 
 - (IBAction)DownloadAction:(id)sender;
 - (void)fetchedData;
