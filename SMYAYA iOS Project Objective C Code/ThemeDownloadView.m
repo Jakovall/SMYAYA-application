@@ -34,7 +34,7 @@ Kurt Floyd, Lead Graphic Designer
 @end
 
 @implementation ThemeDownloadView
-@synthesize table,urlstr,title,keyArray,keyMutableArray,dict;
+@synthesize table,urlstr,title,keyArray,keyMutableArray,dict,allTitles,spinner;;
 
 NSArray *paths;
 NSArray *uzipPath;
@@ -75,6 +75,14 @@ NSString *urlLink;
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    [spinner setHidden:YES];
+   allTitles = [[NSArray alloc]init];
+   // keyMutableArray = [[NSMutableArray alloc] init];
+    
+    allTitles = [[NSUserDefaults standardUserDefaults] objectForKey:@"alltitlekeys"];
+    NSLog(@"count %i",[allTitles count]);
+    keyMutableArray = [NSMutableArray arrayWithArray:allTitles];
+    
     urlLink = [[NSUserDefaults standardUserDefaults] objectForKey:@"schemaToDownload"];
     
     if (urlLink != nil)
@@ -84,7 +92,7 @@ NSString *urlLink;
     }
 
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"schemaToDownload"];
-
+    [table reloadData]; 
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -106,62 +114,17 @@ NSString *urlLink;
 
 - (IBAction)DownloadAction:(id)sender
 {
-    // Determile cache file path
-    paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    filePath = [NSString stringWithFormat:@"%@/%@", [paths objectAtIndex:0],@"Themes"];
-    [[NSFileManager defaultManager] createDirectoryAtPath:[filePath stringByAppendingPathComponent:@"Theme1.zip"] withIntermediateDirectories:YES attributes:nil error:nil];
-    filePath = [NSString stringWithFormat:@"%@/%@", [filePath stringByAppendingPathComponent:@"Theme1.zip"],@"Theme1.zip"];
     
-    // Download and write to file
-    url = [NSURL URLWithString:self.DownloadLink.text];
-    urlData = [NSData dataWithContentsOfURL:url];
-    [urlData writeToFile:filePath atomically:YES];
+    [spinner setHidden:NO];
+    [spinner startAnimating];
+    // Create the request.
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.DownloadLink.text]  cachePolicy:NSURLRequestReturnCacheDataElseLoad
+                                         timeoutInterval:15.0];
+    // Create url connection and fire request
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [conn start];
     
-    uzipPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //This is the path to the "Documents" folder of the app
-    uzipFilePath = [NSString stringWithFormat:@"%@/%@", [uzipPath objectAtIndex:0], @"Theme1.zip"]; //this is the directory to the folder "Theme1.zip" (Documents/Theme1.zip is the string value being declared)
-    
-    ZipArchive *za = [[ZipArchive alloc] init];
-    
-    if( [za UnzipOpenFile:filePath] )
-    {
-        if( [za UnzipFileTo:uzipFilePath overWrite:YES] != NO )
-        {
-            //unzip data success
-            //do something
-        }
-
-        [za UnzipCloseFile];
     }
-    
-    NSString *FeedURLPath = [NSString stringWithFormat:@"%@/%@", uzipFilePath, @"now.txt"]; //this is the directory to the file "now.txt" (Documents/Theme1.zip/now.txt)
-    NSString *contentOfFile = [NSString stringWithContentsOfFile:FeedURLPath encoding:NSUTF8StringEncoding error:nil]; //makes a string value with the contents of the file in the directory "FeedURLPath"
-    NSString *titlePath = [NSString stringWithFormat:@"%@/%@", uzipFilePath, @"title.txt"]; //this is the directory to the file "now.txt" (Documents/Theme1.zip/now.txt)
-    
-    NSString *titleofFile = [NSString stringWithContentsOfFile:titlePath encoding:NSUTF8StringEncoding error:nil]; //makes a string value with the contents of the file in the directory "FeedURLPat
-
-    [[NSUserDefaults standardUserDefaults] setValue:contentOfFile forKey:@"NewsURL"];
-    dict =[[NSMutableDictionary alloc] init];
-    if(![[NSUserDefaults standardUserDefaults] valueForKey:@"urltitle"])
-    {
-        dict = [[NSUserDefaults standardUserDefaults] valueForKey:@"urltitle"];
-    }
-    //[dict setObject:contentOfFile forKey:titleofFile];
-    
-    [dict setObject:self.DownloadLink.text forKey:titleofFile];
-    [[NSUserDefaults standardUserDefaults] setValue:self.DownloadLink.text forKey:titleofFile];
-    
-    [[NSUserDefaults standardUserDefaults] setValue:dict forKey:@"urltitle"];
-    
-    for(int i=0;i<[keyMutableArray count]; i++){
-        
-        if(([[keyMutableArray objectAtIndex:i] isEqualToString:titleofFile])){
-        
-            [keyMutableArray removeObjectAtIndex:i];
-        }
-    }
-    [keyMutableArray addObject:titleofFile];
-    [table reloadData];
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -205,5 +168,130 @@ NSString *urlLink;
 {
     [sender resignFirstResponder];
 }
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    
+    _responseData = [[NSMutableData alloc] init];
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    /* NSLog(@"didReceiveData");
+     UIActivityIndicatorView *  date  = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(150, 150, 30, 30)];
+     [date setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+     [view addsubview:date];
+     [date startAnimating];*/
+    
+    [_responseData appendData:data];
+    
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    //NSLog(@"finish loading %@",_responseData);
+    [spinner setHidden:YES];
+    [spinner stopAnimating];
+    
+    NSString *strData = [[NSString alloc]initWithData:_responseData encoding:NSUTF8StringEncoding];
+    
+    // NSLog(@"string finish loading %@",strData);
+    if ([strData rangeOfString:@"schemebuilda/iphone"].location == NSNotFound) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"There is a problem with this download. There is no file at this link." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    } else {
+        // Determile cache file path
+        paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        filePath = [NSString stringWithFormat:@"%@/%@", [paths objectAtIndex:0],@"Themes"];
+        [[NSFileManager defaultManager] createDirectoryAtPath:[filePath stringByAppendingPathComponent:@"Theme1.zip"] withIntermediateDirectories:YES attributes:nil error:nil];
+        filePath = [NSString stringWithFormat:@"%@/%@", [filePath stringByAppendingPathComponent:@"Theme1.zip"],@"Theme1.zip"];
+        
+        [_responseData writeToFile:filePath atomically:YES];
+        
+        uzipPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //This is the path to the "Documents" folder of the app
+        uzipFilePath = [NSString stringWithFormat:@"%@/%@", [uzipPath objectAtIndex:0], @"Theme1.zip"]; //this is the directory to the folder "Theme1.zip" (Documents/Theme1.zip is the string value being declared)
+        
+        ZipArchive *za = [[ZipArchive alloc] init];
+        
+        if( [za UnzipOpenFile:filePath] )
+        {
+            if( [za UnzipFileTo:uzipFilePath overWrite:YES] != NO )
+            {
+                //unzip data success
+                //do something
+            }
+            
+            [za UnzipCloseFile];
+        }
+        
+        NSString *FeedURLPath = [NSString stringWithFormat:@"%@/%@", uzipFilePath, @"now.txt"]; //this is the directory to the file "now.txt" (Documents/Theme1.zip/now.txt)
+        NSString *contentOfFile = [NSString stringWithContentsOfFile:FeedURLPath encoding:NSUTF8StringEncoding error:nil]; //makes a string value with the contents of the file in the directory "FeedURLPath"
+        
+        NSString *titlePath = [NSString stringWithFormat:@"%@/%@", uzipFilePath, @"title.txt"]; //this is the directory to the file "now.txt" (Documents/Theme1.zip/now.txt)
+        
+        NSString *titleofFile = [NSString stringWithContentsOfFile:titlePath encoding:NSUTF8StringEncoding error:nil]; //makes a string value with the contents of the file in the directory "FeedURLPat
+        
+        [[NSUserDefaults standardUserDefaults] setValue:contentOfFile forKey:@"NewsURL"];
+        dict =[[NSMutableDictionary alloc] init];
+        if(![[NSUserDefaults standardUserDefaults] valueForKey:@"urltitle"])
+        {
+            dict = [[NSUserDefaults standardUserDefaults] valueForKey:@"urltitle"];
+        }
+        //[dict setObject:contentOfFile forKey:titleofFile];
+        
+        [dict setObject:self.DownloadLink.text forKey:titleofFile];
+        [[NSUserDefaults standardUserDefaults] setValue:self.DownloadLink.text forKey:titleofFile];
+        
+        [[NSUserDefaults standardUserDefaults] setValue:dict forKey:@"urltitle"];
+        
+        for(int i=0;i<[keyMutableArray count]; i++){
+            
+            if(([[keyMutableArray objectAtIndex:i] isEqualToString:titleofFile])){
+                
+                [keyMutableArray removeObjectAtIndex:i];
+            }
+        }
+        [keyMutableArray addObject:titleofFile];
+        
+        NSArray* reversedArray = [[keyMutableArray reverseObjectEnumerator] allObjects];
+        keyMutableArray = [NSMutableArray arrayWithArray:reversedArray];
+
+        [[NSUserDefaults standardUserDefaults] setObject:keyMutableArray forKey:@"alltitlekeys"];
+        
+        
+    }
+    
+    [table reloadData];
+    
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    // The request has failed for some reason!
+    // Check the error var
+    [spinner setHidden:YES];
+    [spinner stopAnimating];
+    
+    if([[error localizedDescription] isEqualToString:@"The Internet connection appears to be offline."]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"There is no active web connection." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([[error localizedDescription] isEqualToString:@"The request timed out."]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"There is a problem with this download. This file is not downloading." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([[error localizedDescription] isEqualToString:@"A server with the specified hostname could not be found."]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"A server with the specified hostname could not be found." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+}
+
 
 @end

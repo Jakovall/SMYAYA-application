@@ -194,6 +194,7 @@
                                     <outlet property="delegate" destination="BKW-9G-MRf" id="IlX-tz-7JO"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="O2N-eg-HWf"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -203,8 +204,10 @@
                             <constraint firstItem="SJM-1x-7fd" firstAttribute="trailing" secondItem="9st-dl-UOb" secondAttribute="trailing" type="default" id="Dih-Fd-6qG"/>
                             <constraint firstItem="efM-Jt-qTE" firstAttribute="top" secondItem="1Ot-5I-Fov" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="HtN-s3-iPE"/>
                             <constraint firstItem="C4x-FT-o2e" firstAttribute="bottom" secondItem="9st-dl-UOb" secondAttribute="bottom" type="default" id="Ngw-kR-I2o"/>
+                            <constraint firstItem="O2N-eg-HWf" firstAttribute="leading" secondItem="9st-dl-UOb" secondAttribute="leading" constant="141" id="RGQ-rp-6Dp"/>
                             <constraint firstAttribute="trailing" secondItem="efM-Jt-qTE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="W0c-7j-obm"/>
                             <constraint firstItem="SJM-1x-7fd" firstAttribute="leading" secondItem="9st-dl-UOb" secondAttribute="leading" type="default" id="XMJ-Oj-DOb"/>
+                            <constraint firstItem="O2N-eg-HWf" firstAttribute="top" secondItem="9st-dl-UOb" secondAttribute="top" constant="208" id="dGn-MS-Gq7"/>
                             <constraint firstItem="SJM-1x-7fd" firstAttribute="bottom" secondItem="9st-dl-UOb" secondAttribute="bottom" type="default" id="eEj-Au-Igy"/>
                             <constraint firstItem="SJM-1x-7fd" firstAttribute="top" secondItem="9st-dl-UOb" secondAttribute="top" type="default" id="lup-ny-cQb"/>
                             <constraint firstItem="C4x-FT-o2e" firstAttribute="top" secondItem="yxO-sc-JCf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mWj-fM-bNT"/>
@@ -217,6 +220,7 @@
                     <navigationItem key="navigationItem" id="iFg-OM-aT4"/>
                     <connections>
                         <outlet property="DownloadLink" destination="efM-Jt-qTE" id="Heu-Se-uEX"/>
+                        <outlet property="spinner" destination="O2N-eg-HWf" id="eE1-wQ-uqE"/>
                         <outlet property="table" destination="C4x-FT-o2e" id="DlV-05-nVK"/>
                     </connections>
                 </viewController>
@@ -686,6 +690,83 @@ Lead Graphic Designer</string>
         <image name="nowIcon.png" width="28" height="23"/>
         <image name="schemaIcon.png" width="26" height="26"/>
     </resources>
+    <classes>
+        <class className="CustomisDetailView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomisDetailView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentOutlet" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="CustomisTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomisTableView.h"/>
+        </class>
+        <class className="FunView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FunView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="FunWeb" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="MeView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="PrefsListTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="backgroundImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NowView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NowView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="NowWeb" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="PrefsTable" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrefsTable.h"/>
+            <relationships>
+                <relationship kind="outlet" name="BackgroundPref" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ThemeDownloadView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThemeDownloadView.h"/>
+            <relationships>
+                <relationship kind="action" name="DownloadAction:"/>
+                <relationship kind="action" name="LowerKeyboard:"/>
+                <relationship kind="outlet" name="DownloadLink" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="UserProfileSettings" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserProfileSettings.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ProfileSelect" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="aboutView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/aboutView.h"/>
+        </class>
+        <class className="personalInfo" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/personalInfo.h"/>
+            <relationships>
+                <relationship kind="action" name="saveName:"/>
+                <relationship kind="outlet" name="nameValue" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="smyayaViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/smyayaViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="pinSetter" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="willItBlendViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/willItBlendViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="blendIt" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

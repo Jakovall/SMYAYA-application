@@ -31,7 +31,7 @@ Kurt Floyd, Lead Graphic Designer
 
 @implementation smyayaAppDelegate
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+/*- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     NSString *urlToSave = [NSString stringWithFormat:@"%@", url];
     urlToSave = [urlToSave substringWithRange:NSMakeRange(6, [urlToSave length] - 6)];
@@ -47,7 +47,29 @@ Kurt Floyd, Lead Graphic Designer
     tabb.selectedIndex = 3;
     
     return YES;
+}*/
+
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    
+    NSLog(@"url is ");
+    NSLog(@"url is %@",url);
+    NSString *urlToSave = [NSString stringWithFormat:@"%@", url];
+    urlToSave = [urlToSave substringWithRange:NSMakeRange(6, [urlToSave length] - 6)];
+    urlToSave = [NSString stringWithFormat:@"http%@", urlToSave];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:urlToSave forKey:@"schemaToDownload"];
+    
+    UITabBarController *tabb = (UITabBarController *)self.window.rootViewController;
+    
+    if (tabb.selectedIndex == 3)
+        tabb.selectedIndex = 4;
+    
+    tabb.selectedIndex = 3;
+    
+    return YES;
 }
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
