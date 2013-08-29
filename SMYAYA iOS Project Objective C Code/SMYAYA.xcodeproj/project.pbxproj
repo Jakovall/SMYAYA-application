@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5240EE2D17CEF8A3008E3F55 /* graphic-artist.png in Resources */ = {isa = PBXBuildFile; fileRef = 5240EE2C17CEF8A3008E3F55 /* graphic-artist.png */; };
 		52679F23175A5852005D8722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52679F22175A5852005D8722 /* UIKit.framework */; };
 		52679F25175A5852005D8722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52679F24175A5852005D8722 /* Foundation.framework */; };
 		52679F27175A5852005D8722 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52679F26175A5852005D8722 /* CoreGraphics.framework */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5240EE2C17CEF8A3008E3F55 /* graphic-artist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graphic-artist.png"; sourceTree = "<group>"; };
 		52679F1E175A5852005D8722 /* SM Catholic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SM Catholic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52679F22175A5852005D8722 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		52679F24175A5852005D8722 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -198,6 +200,7 @@
 		52679F29175A5852005D8722 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5240EE2C17CEF8A3008E3F55 /* graphic-artist.png */,
 				BF5DC6BD17B04F9C000D29F6 /* schemaIcon.png */,
 				BF5DC6BB17B04F94000D29F6 /* nowIcon.png */,
 				BF5DC6B917B04F8B000D29F6 /* homeIcon.png */,
@@ -368,6 +371,7 @@
 				BF5DC6BA17B04F8B000D29F6 /* homeIcon.png in Resources */,
 				BF5DC6BC17B04F94000D29F6 /* nowIcon.png in Resources */,
 				BF5DC6BE17B04F9C000D29F6 /* schemaIcon.png in Resources */,
+				5240EE2D17CEF8A3008E3F55 /* graphic-artist.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
