@@ -28,9 +28,11 @@ Kurt Floyd, Lead Graphic Designer
 */
 
 #import "CustomisTableView.h"
+#import "SYEditHomeItemsTableViewController.h"
 
 @interface CustomisTableView ()
-
+-(void)updateEditButton;
+-(void)editButtonHandle:(id)editButton;
 @end
 
 @implementation CustomisTableView
@@ -58,10 +60,8 @@ int itemCount;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 - (void) viewWillAppear:(BOOL)animated
 {
@@ -85,10 +85,25 @@ int itemCount;
         
         [noFiles show];
     }
+    [self updateEditButton];
     
     [self.tableView reloadData];
     
     NSLog(@"Me First, right?");   
+}
+
+
+-(void)updateEditButton {
+    if (! menuitems.count) {
+        self.navigationItem.rightBarButtonItem = nil;
+        return ;
+    }
+    
+    
+    UIBarButtonItem* editBarButtonItem     = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                                                                           target:self
+                                                                                           action:@selector(editButtonHandle:)];
+    self.navigationItem.rightBarButtonItem = editBarButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,13 +112,28 @@ int itemCount;
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)editButtonHandle:(id)editButton
+{
+    [self performSegueWithIdentifier:@"toEditViewController" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toEditViewController"]) {
+        UINavigationController* navigationController = segue.destinationViewController;
+        SYEditHomeItemsTableViewController* edidTableViewController = navigationController.viewControllers[0];
+        edidTableViewController.dismissBlock = ^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        };
+        [edidTableViewController setMenuItems:menuitems];
+    }
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    
-    NSLog(@"I come second, don't I?");
+{   
     
     // Return the number of sections.
     return 1;
@@ -111,10 +141,6 @@ int itemCount;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    NSLog(@"I'm third, right?");
-    
-    // Return the number of rows in the section.
     return itemCount;
 }
 
@@ -125,13 +151,13 @@ int itemCount;
     
     //if ([[NSFileManager defaultManager] fileExistsAtPath:@"menuPath"] == YES)
     //{
-        TitleLoop = [menuitems objectAtIndex:indexPath.row];
-        NSLog(@"Dictionary: %@", TitleLoop);
-
-        NSString *Title = [NSString stringWithFormat:[TitleLoop objectForKey:@"title"]];
-        NSLog(@"Title: %@", Title);
-
-        cell.textLabel.text = Title;
+    TitleLoop = [menuitems objectAtIndex:indexPath.row];
+    NSLog(@"Dictionary: %@", TitleLoop);
+    
+    NSString *Title = [TitleLoop objectForKey:@"title"];
+    NSLog(@"Title: %@", Title);
+    
+    cell.textLabel.text = Title;
     //}
     
     //else if ([[NSFileManager defaultManager] fileExistsAtPath:@"menuPath"] == NO)
