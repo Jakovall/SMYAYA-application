@@ -155,6 +155,12 @@
     if ([segue.identifier isEqualToString:@"toEditItemViewController"]) {
         SYEditItemViewController* editItemViewController = segue.destinationViewController;
         editItemViewController.item = _selectedItem;
+        editItemViewController.textChangedBlock = ^(NSString* newText) {
+            NSMutableDictionary* mutableItem = [NSMutableDictionary dictionaryWithDictionary:_selectedItem];
+            [mutableItem setObject:newText forKey:@"content"];
+            [_mutableMenuItems replaceObjectAtIndex:[_mutableMenuItems indexOfObject:_selectedItem]
+                                         withObject:mutableItem];
+        };
     }
 }
 

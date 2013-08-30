@@ -8,12 +8,13 @@
 
 #import "SYEditItemViewController.h"
 
-@interface SYEditItemViewController ()
-
+@interface SYEditItemViewController () {
+    NSString* _initialContent;
+}
 @end
 
 @implementation SYEditItemViewController
-@synthesize item;
+@synthesize item, textChangedBlock;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,18 +29,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    textView.text = item[@"content"];
-}
-
-- (NSDictionary*)item {
-    return item;
-}
-
-- (void)setItem:(NSDictionary *)item_ {
-    item = item_;
     self.title = item[@"title"];
-    if ([self isViewLoaded]) {
-        textView.text = item[@"content"];
+    NSString* content = item[@"content"];
+    textView.text = content;
+    _initialContent = [content copy];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+    if (![_initialContent isEqualToString:textView.text]) {
+        textChangedBlock(textView.text);
     }
 }
 
