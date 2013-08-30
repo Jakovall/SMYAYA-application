@@ -120,7 +120,11 @@ int itemCount;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toEditViewController"]) {
-        SYEditHomeItemsTableViewController* edidTableViewController = segue.destinationViewController;
+        UINavigationController* navigationController = segue.destinationViewController;
+        SYEditHomeItemsTableViewController* edidTableViewController = navigationController.viewControllers[0];
+        edidTableViewController.dismissBlock = ^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        };
         [edidTableViewController setMenuItems:menuitems];
     }
 }

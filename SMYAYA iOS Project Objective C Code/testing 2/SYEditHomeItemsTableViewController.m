@@ -13,12 +13,16 @@
     NSMutableArray* _mutableMenuItems;
     NSDictionary* _selectedItem;
 }
-- (void)doneButtonHandle:(id)doneButton;
+
+- (void)disclosureButtonHandler:(UIButton*)btn withEvent:(UIEvent*)event;
+- (void)cancelButtonHandle:(id)doneButton;
 - (void)saveButtonHandle:(id)saveButton;
 - (void)openEditViewControllerForItem:(NSDictionary*)item;
+
 @end
 
 @implementation SYEditHomeItemsTableViewController
+@synthesize dismissBlock;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,9 +49,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                          target:self
-                                                                                          action:@selector(doneButtonHandle:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(cancelButtonHandle:)];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                                                            target:self
                                                                                            action:@selector(saveButtonHandle:)];
@@ -62,9 +68,14 @@
 }
 
 
-- (void)doneButtonHandle:(id)doneButton
+- (void)cancelButtonHandle:(id)doneButton
 {
     [self.navigationController popViewControllerAnimated:YES];
+    if (dismissBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            dismissBlock();
+        });
+    }
 }
 
 - (void)saveButtonHandle:(id)saveButton
@@ -96,6 +107,13 @@
     NSDictionary* item = _mutableMenuItems[indexPath.row];
     NSString *title = [item objectForKey:@"title"];
     cell.textLabel.text = title;
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [btn addTarget:self
+            action:@selector(disclosureButtonHandler:withEvent:)
+  forControlEvents:UIControlEventTouchUpInside];
+    cell.accessoryView = btn;
+
     
     return cell;
 }
@@ -145,6 +163,12 @@
 */
 
 #pragma mark - Table view delegate
+-(void)disclosureButtonHandler:(UIButton*)btn withEvent:(UIEvent*)event {
+    NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint: [[[event touchesForView:btn] anyObject] locationInView:self.tableView]];
+    if ( indexPath == nil )
+        return;
+    [self openEditViewControllerForItem:_mutableMenuItems[indexPath.row]];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
