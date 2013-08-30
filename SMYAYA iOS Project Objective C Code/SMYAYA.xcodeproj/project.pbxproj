@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		255152B717D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255152B617D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m */; };
+		255152BA17D062E600E7C6A9 /* SYEditItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255152B917D062E600E7C6A9 /* SYEditItemViewController.m */; };
 		5240EE2D17CEF8A3008E3F55 /* graphic-artist.png in Resources */ = {isa = PBXBuildFile; fileRef = 5240EE2C17CEF8A3008E3F55 /* graphic-artist.png */; };
 		52679F23175A5852005D8722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52679F22175A5852005D8722 /* UIKit.framework */; };
 		52679F25175A5852005D8722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52679F24175A5852005D8722 /* Foundation.framework */; };
@@ -58,6 +60,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		255152B517D0616600E7C6A9 /* SYEditHomeItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditHomeItemsTableViewController.h; sourceTree = "<group>"; };
+		255152B617D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditHomeItemsTableViewController.m; sourceTree = "<group>"; };
+		255152B817D062E600E7C6A9 /* SYEditItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditItemViewController.h; sourceTree = "<group>"; };
+		255152B917D062E600E7C6A9 /* SYEditItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditItemViewController.m; sourceTree = "<group>"; };
 		5240EE2C17CEF8A3008E3F55 /* graphic-artist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graphic-artist.png"; sourceTree = "<group>"; };
 		52679F1E175A5852005D8722 /* SM Catholic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SM Catholic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52679F22175A5852005D8722 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -280,6 +286,10 @@
 				BF96BA10177FA77B00B08342 /* CustomisDetailView.m */,
 				BFBD17681780D352007717E9 /* aboutView.h */,
 				BFBD17691780D352007717E9 /* aboutView.m */,
+				255152B517D0616600E7C6A9 /* SYEditHomeItemsTableViewController.h */,
+				255152B617D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m */,
+				255152B817D062E600E7C6A9 /* SYEditItemViewController.h */,
+				255152B917D062E600E7C6A9 /* SYEditItemViewController.m */,
 			);
 			name = MainViews;
 			sourceTree = "<group>";
@@ -403,6 +413,8 @@
 				BF96BA0E177FA15800B08342 /* CustomisTableView.m in Sources */,
 				BF96BA11177FA77B00B08342 /* CustomisDetailView.m in Sources */,
 				BFBD176A1780D352007717E9 /* aboutView.m in Sources */,
+				255152B717D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m in Sources */,
+				255152BA17D062E600E7C6A9 /* SYEditItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

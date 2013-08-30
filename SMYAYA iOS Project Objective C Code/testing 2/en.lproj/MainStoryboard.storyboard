@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="33m-mN-NJL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="33m-mN-NJL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -154,7 +154,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cje-aN-YWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1363" y="200"/>
+            <point key="canvasLocation" x="1505" y="188"/>
         </scene>
         <!--Theme Download View - Download-->
         <scene sceneID="2dz-4r-sCs">
@@ -398,7 +398,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSf-YD-A2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1299" y="1058"/>
+            <point key="canvasLocation" x="1285" y="878"/>
         </scene>
         <!--Will It Blend View Controller-->
         <scene sceneID="pFs-4H-Xlk">
@@ -431,7 +431,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cr9-sS-WYm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1924" y="948"/>
+            <point key="canvasLocation" x="1758" y="878"/>
         </scene>
         <!--Personal Info - Personal Info-->
         <scene sceneID="ie5-up-VHk">
@@ -473,7 +473,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMI-mw-T0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2408" y="882"/>
+            <point key="canvasLocation" x="2452" y="866"/>
         </scene>
         <!--User Profile Settings - User-->
         <scene sceneID="G00-Q7-G1R">
@@ -506,7 +506,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iie-eA-Wkz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2004" y="168"/>
+            <point key="canvasLocation" x="2168" y="188"/>
         </scene>
         <!--Fun View - Fun-->
         <scene sceneID="CGi-cQ-N2D">
@@ -535,7 +535,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3w2-w9-xrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2359" y="-737"/>
+            <point key="canvasLocation" x="2161" y="-721"/>
         </scene>
         <!--Customis Table View - Home-->
         <scene sceneID="ERw-3L-dsM">
@@ -566,11 +566,12 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="k6p-dA-634" kind="push" identifier="toDetail" id="VKZ-gh-2gG"/>
+                        <segue destination="sHV-aK-6M0" kind="push" identifier="toEditViewController" id="oZf-ba-tsm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2HV-2U-ZgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100" y="-1260"/>
+            <point key="canvasLocation" x="114" y="-1262"/>
         </scene>
         <!--Customis Detail View - Detail-->
         <scene sceneID="beK-CC-C6V">
@@ -589,10 +590,10 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wmN-1H-1tG" firstAttribute="top" secondItem="krb-Nr-fcT" secondAttribute="top" type="default" id="4mf-N7-cYQ"/>
                             <constraint firstItem="wmN-1H-1tG" firstAttribute="leading" secondItem="krb-Nr-fcT" secondAttribute="leading" type="default" id="BOg-r7-HGZ"/>
+                            <constraint firstItem="wmN-1H-1tG" firstAttribute="top" secondItem="krb-Nr-fcT" secondAttribute="top" type="default" id="Pae-Np-Wjw"/>
                             <constraint firstItem="wmN-1H-1tG" firstAttribute="trailing" secondItem="krb-Nr-fcT" secondAttribute="trailing" type="default" id="h8u-dj-R4e"/>
-                            <constraint firstItem="wmN-1H-1tG" firstAttribute="bottom" secondItem="krb-Nr-fcT" secondAttribute="bottom" type="default" id="rbS-50-oRM"/>
+                            <constraint firstItem="wmN-1H-1tG" firstAttribute="bottom" secondItem="krb-Nr-fcT" secondAttribute="bottom" type="default" id="zG9-QB-C7V"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="ORf-MI-hcx"/>
@@ -602,7 +603,72 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CmC-9C-G65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100" y="-1915"/>
+            <point key="canvasLocation" x="114" y="-1915"/>
+        </scene>
+        <!--Edit Home Items Table View Controller - Edit home items-->
+        <scene sceneID="iGI-a3-KwT">
+            <objects>
+                <tableViewController title="Edit home items" id="sHV-aK-6M0" customClass="SYEditHomeItemsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8R2-45-Umr">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomisCell" id="MAf-79-lna">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sHV-aK-6M0" id="Jdc-36-F4z"/>
+                            <outlet property="delegate" destination="sHV-aK-6M0" id="HRq-07-5uv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="7KT-Zk-2BC"/>
+                    <connections>
+                        <segue destination="6Gm-4Q-vbF" kind="push" identifier="toEditItemViewController" id="UT9-Ju-1w2"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R9p-FO-iby" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="647" y="-1806"/>
+        </scene>
+        <!--Edit Item View Controller - Edit item-->
+        <scene sceneID="CB1-Ji-TJ1">
+            <objects>
+                <viewController title="Edit item" id="6Gm-4Q-vbF" customClass="SYEditItemViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I8K-O5-sTA">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wcm-eh-lEu">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Wcm-eh-lEu" firstAttribute="bottom" secondItem="I8K-O5-sTA" secondAttribute="bottom" type="default" id="3IW-d2-NFk"/>
+                            <constraint firstItem="Wcm-eh-lEu" firstAttribute="leading" secondItem="I8K-O5-sTA" secondAttribute="leading" type="default" id="IZQ-9c-uXJ"/>
+                            <constraint firstItem="Wcm-eh-lEu" firstAttribute="trailing" secondItem="I8K-O5-sTA" secondAttribute="trailing" type="default" id="OqD-Ak-iBd"/>
+                            <constraint firstItem="Wcm-eh-lEu" firstAttribute="top" secondItem="I8K-O5-sTA" secondAttribute="top" type="default" id="tPY-OX-J4d"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CFb-OH-ezY"/>
+                    <connections>
+                        <outlet property="textView" destination="Wcm-eh-lEu" id="Xkb-1V-xMy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2V7-XL-5NE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1151" y="-1808"/>
         </scene>
         <!--Smyaya View Controller - Geo-->
         <scene sceneID="tED-TS-AQi">
@@ -629,7 +695,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFM-rJ-uEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="519" y="-592"/>
+            <point key="canvasLocation" x="932" y="-920"/>
         </scene>
         <!--Navigation Controller - Me-->
         <scene sceneID="Ylf-t8-ElM">
@@ -652,7 +718,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZfK-Hu-RfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3993" y="0.0"/>
+            <point key="canvasLocation" x="1339" y="-650"/>
         </scene>
         <!--Navigation Controller - Home-->
         <scene sceneID="s35-jz-Uhh">
@@ -707,83 +773,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
         <image name="nowIcon.png" width="28" height="23"/>
         <image name="schemaIcon.png" width="26" height="26"/>
     </resources>
-    <classes>
-        <class className="CustomisDetailView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomisDetailView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="contentOutlet" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="CustomisTableView" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomisTableView.h"/>
-        </class>
-        <class className="FunView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FunView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="FunWeb" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="MeView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="PrefsListTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="backgroundImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NowView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NowView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="NowWeb" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="PrefsTable" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrefsTable.h"/>
-            <relationships>
-                <relationship kind="outlet" name="BackgroundPref" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ThemeDownloadView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThemeDownloadView.h"/>
-            <relationships>
-                <relationship kind="action" name="DownloadAction:"/>
-                <relationship kind="action" name="LowerKeyboard:"/>
-                <relationship kind="outlet" name="DownloadLink" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="UserProfileSettings" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserProfileSettings.h"/>
-            <relationships>
-                <relationship kind="outlet" name="ProfileSelect" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="aboutView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/aboutView.h"/>
-        </class>
-        <class className="personalInfo" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/personalInfo.h"/>
-            <relationships>
-                <relationship kind="action" name="saveName:"/>
-                <relationship kind="outlet" name="nameValue" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="smyayaViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/smyayaViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pinSetter" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="willItBlendViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/willItBlendViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="blendIt" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
