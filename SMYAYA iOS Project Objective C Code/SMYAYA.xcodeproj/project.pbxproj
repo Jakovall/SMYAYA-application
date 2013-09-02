@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2548557617D3E1F40075EAD9 /* SYEditTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2548557517D3E1F40075EAD9 /* SYEditTextViewController.m */; };
 		255152B717D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255152B617D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m */; };
-		255152BA17D062E600E7C6A9 /* SYEditItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255152B917D062E600E7C6A9 /* SYEditItemViewController.m */; };
+		255E6E2E17D47F8C005A09C8 /* SYEditGeoItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255E6E2D17D47F8C005A09C8 /* SYEditGeoItemsTableViewController.m */; };
+		255E6E3117D48215005A09C8 /* SYEditGeoItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255E6E3017D48215005A09C8 /* SYEditGeoItemViewController.m */; };
+		2565798517D47C1A00C825B4 /* SYEditRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2565798417D47C1A00C825B4 /* SYEditRootViewController.m */; };
+		25B958D017D3629D0089DDA8 /* SYDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B958CF17D3629D0089DDA8 /* SYDataProvider.m */; };
 		5240EE2D17CEF8A3008E3F55 /* graphic-artist.png in Resources */ = {isa = PBXBuildFile; fileRef = 5240EE2C17CEF8A3008E3F55 /* graphic-artist.png */; };
 		52679F23175A5852005D8722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52679F22175A5852005D8722 /* UIKit.framework */; };
 		52679F25175A5852005D8722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52679F24175A5852005D8722 /* Foundation.framework */; };
@@ -60,10 +64,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2548557417D3E1F40075EAD9 /* SYEditTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditTextViewController.h; sourceTree = "<group>"; };
+		2548557517D3E1F40075EAD9 /* SYEditTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditTextViewController.m; sourceTree = "<group>"; };
 		255152B517D0616600E7C6A9 /* SYEditHomeItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditHomeItemsTableViewController.h; sourceTree = "<group>"; };
 		255152B617D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditHomeItemsTableViewController.m; sourceTree = "<group>"; };
-		255152B817D062E600E7C6A9 /* SYEditItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditItemViewController.h; sourceTree = "<group>"; };
-		255152B917D062E600E7C6A9 /* SYEditItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditItemViewController.m; sourceTree = "<group>"; };
+		255E6E2C17D47F8C005A09C8 /* SYEditGeoItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditGeoItemsTableViewController.h; sourceTree = "<group>"; };
+		255E6E2D17D47F8C005A09C8 /* SYEditGeoItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditGeoItemsTableViewController.m; sourceTree = "<group>"; };
+		255E6E2F17D48215005A09C8 /* SYEditGeoItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditGeoItemViewController.h; sourceTree = "<group>"; };
+		255E6E3017D48215005A09C8 /* SYEditGeoItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditGeoItemViewController.m; sourceTree = "<group>"; };
+		2565798317D47C1A00C825B4 /* SYEditRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditRootViewController.h; sourceTree = "<group>"; };
+		2565798417D47C1A00C825B4 /* SYEditRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditRootViewController.m; sourceTree = "<group>"; };
+		25B958CE17D3629D0089DDA8 /* SYDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYDataProvider.h; sourceTree = "<group>"; };
+		25B958CF17D3629D0089DDA8 /* SYDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYDataProvider.m; sourceTree = "<group>"; };
 		5240EE2C17CEF8A3008E3F55 /* graphic-artist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graphic-artist.png"; sourceTree = "<group>"; };
 		52679F1E175A5852005D8722 /* SM Catholic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SM Catholic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52679F22175A5852005D8722 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -154,6 +166,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25B958C917D361350089DDA8 /* EditViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				255152B517D0616600E7C6A9 /* SYEditHomeItemsTableViewController.h */,
+				255152B617D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m */,
+				2565798317D47C1A00C825B4 /* SYEditRootViewController.h */,
+				2565798417D47C1A00C825B4 /* SYEditRootViewController.m */,
+				2548557417D3E1F40075EAD9 /* SYEditTextViewController.h */,
+				2548557517D3E1F40075EAD9 /* SYEditTextViewController.m */,
+				255E6E2C17D47F8C005A09C8 /* SYEditGeoItemsTableViewController.h */,
+				255E6E2D17D47F8C005A09C8 /* SYEditGeoItemsTableViewController.m */,
+				255E6E2F17D48215005A09C8 /* SYEditGeoItemViewController.h */,
+				255E6E3017D48215005A09C8 /* SYEditGeoItemViewController.m */,
+			);
+			name = EditViewControllers;
+			sourceTree = "<group>";
+		};
+		25B958CD17D3628F0089DDA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				25B958CE17D3629D0089DDA8 /* SYDataProvider.h */,
+				25B958CF17D3629D0089DDA8 /* SYDataProvider.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		52679F13175A5852005D8722 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +225,8 @@
 		52679F28175A5852005D8722 /* testing 2 */ = {
 			isa = PBXGroup;
 			children = (
+				25B958CD17D3628F0089DDA8 /* Model */,
+				25B958C917D361350089DDA8 /* EditViewControllers */,
 				52679F3A175A5852005D8722 /* MainStoryboard.storyboard */,
 				BF5AE1461775E47B00B6329D /* OpenXMLView.h */,
 				BF5AE1471775E47B00B6329D /* OpenXMLView.m */,
@@ -286,10 +326,6 @@
 				BF96BA10177FA77B00B08342 /* CustomisDetailView.m */,
 				BFBD17681780D352007717E9 /* aboutView.h */,
 				BFBD17691780D352007717E9 /* aboutView.m */,
-				255152B517D0616600E7C6A9 /* SYEditHomeItemsTableViewController.h */,
-				255152B617D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m */,
-				255152B817D062E600E7C6A9 /* SYEditItemViewController.h */,
-				255152B917D062E600E7C6A9 /* SYEditItemViewController.m */,
 			);
 			name = MainViews;
 			sourceTree = "<group>";
@@ -414,7 +450,11 @@
 				BF96BA11177FA77B00B08342 /* CustomisDetailView.m in Sources */,
 				BFBD176A1780D352007717E9 /* aboutView.m in Sources */,
 				255152B717D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m in Sources */,
-				255152BA17D062E600E7C6A9 /* SYEditItemViewController.m in Sources */,
+				25B958D017D3629D0089DDA8 /* SYDataProvider.m in Sources */,
+				2548557617D3E1F40075EAD9 /* SYEditTextViewController.m in Sources */,
+				2565798517D47C1A00C825B4 /* SYEditRootViewController.m in Sources */,
+				255E6E2E17D47F8C005A09C8 /* SYEditGeoItemsTableViewController.m in Sources */,
+				255E6E3117D48215005A09C8 /* SYEditGeoItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
