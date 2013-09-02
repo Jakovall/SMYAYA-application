@@ -44,6 +44,7 @@
     };
     self.tableView.editing = YES;
     self.tableView.allowsSelectionDuringEditing = YES;
+    self.title = @"Home Items";
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,8 +72,6 @@
     static NSString *CellIdentifier = @"CustomisCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    //if ([[NSFileManager defaultManager] fileExistsAtPath:@"menuPath"] == YES)
-    //{
     NSDictionary* item = _menuItems[indexPath.row];
     NSString *title = [item objectForKey:@"title"];
     cell.textLabel.text = title;
