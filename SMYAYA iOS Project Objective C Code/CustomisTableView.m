@@ -28,7 +28,7 @@ Kurt Floyd, Lead Graphic Designer
 */
 
 #import "CustomisTableView.h"
-#import "SYEditHomeItemsTableViewController.h"
+#import "SYEditRootViewController.h"
 
 @interface CustomisTableView ()
 -(void)updateEditButton;
@@ -121,11 +121,10 @@ int itemCount;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toEditViewController"]) {
         UINavigationController* navigationController = segue.destinationViewController;
-        SYEditHomeItemsTableViewController* edidTableViewController = navigationController.viewControllers[0];
+        SYEditRootViewController* edidTableViewController = navigationController.viewControllers[0];
         edidTableViewController.dismissBlock = ^{
             [self dismissViewControllerAnimated:YES completion:nil];
         };
-        [edidTableViewController setMenuItems:menuitems];
     }
 }
 

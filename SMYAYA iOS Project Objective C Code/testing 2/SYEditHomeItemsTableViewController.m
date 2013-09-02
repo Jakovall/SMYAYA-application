@@ -7,22 +7,22 @@
 //
 
 #import "SYEditHomeItemsTableViewController.h"
-#import "SYEditItemViewController.h"
+#import "SYEditTextViewController.h"
+#import "SYDataProvider.h"
 
 @interface SYEditHomeItemsTableViewController () {
-    NSMutableArray* _mutableMenuItems;
-    NSDictionary* _selectedItem;
+    NSDictionary*   _selectedItem;
 }
 
-- (void)disclosureButtonHandler:(UIButton*)btn withEvent:(UIEvent*)event;
-- (void)cancelButtonHandle:(id)doneButton;
-- (void)saveButtonHandle:(id)saveButton;
+@property (readwrite, strong) NSArray*  menuItems;
+@property (readwrite, strong) void(^updateMenuItemsBlock) (NSArray* newHomeItems);
+
 - (void)openEditViewControllerForItem:(NSDictionary*)item;
 
 @end
 
 @implementation SYEditHomeItemsTableViewController
-@synthesize dismissBlock;
+@synthesize menuItems = _menuItems;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,30 +33,15 @@
     return self;
 }
 
-- (void)setMenuItems:(NSArray *)menuItems {
-    _mutableMenuItems = [NSMutableArray arrayWithArray:menuItems];
-}
-
-- (NSArray*)menuItems {
-    return _mutableMenuItems;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:@selector(cancelButtonHandle:)];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
-                                                                                           target:self
-                                                                                           action:@selector(saveButtonHandle:)];
+    _menuItems = [[SYDataProvider sharedDataProvider] menuItems];
+    __weak SYEditHomeItemsTableViewController* weakSelf = self;
+    self.updateMenuItemsBlock = ^(NSArray* newItemsBlock) {
+        weakSelf.menuItems = newItemsBlock;
+        /// write to SYDataProvider
+    };
     self.tableView.editing = YES;
     self.tableView.allowsSelectionDuringEditing = YES;
 }
@@ -65,22 +50,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-- (void)cancelButtonHandle:(id)doneButton
-{
-    [self.navigationController popViewControllerAnimated:YES];
-    if (dismissBlock) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            dismissBlock();
-        });
-    }
-}
-
-- (void)saveButtonHandle:(id)saveButton
-{
-    /// empty so far
 }
 
 #pragma mark - Table view data source
@@ -94,7 +63,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return _mutableMenuItems.count;
+    return _menuItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,7 +73,7 @@
     
     //if ([[NSFileManager defaultManager] fileExistsAtPath:@"menuPath"] == YES)
     //{
-    NSDictionary* item = _mutableMenuItems[indexPath.row];
+    NSDictionary* item = _menuItems[indexPath.row];
     NSString *title = [item objectForKey:@"title"];
     cell.textLabel.text = title;
     
@@ -133,7 +102,9 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [_mutableMenuItems removeObjectAtIndex:indexPath.row];
+        NSMutableArray* mutableItems = [NSMutableArray arrayWithArray:_menuItems];
+        [mutableItems removeObjectAtIndex:indexPath.row];
+        self.updateMenuItemsBlock(mutableItems);
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -146,10 +117,12 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    NSDictionary* movedItem = _mutableMenuItems[fromIndexPath.row];
-    [_mutableMenuItems removeObject:movedItem];
-    [_mutableMenuItems insertObject:movedItem
-                            atIndex:toIndexPath.row];
+    NSMutableArray* mutableItems = [NSMutableArray arrayWithArray:_menuItems];
+    NSDictionary* movedItem = mutableItems[fromIndexPath.row];
+    [mutableItems removeObject:movedItem];
+    [mutableItems insertObject:movedItem
+                       atIndex:toIndexPath.row];
+    self.updateMenuItemsBlock(mutableItems);
 }
 
 
@@ -167,30 +140,38 @@
     NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint: [[[event touchesForView:btn] anyObject] locationInView:self.tableView]];
     if ( indexPath == nil )
         return;
-    [self openEditViewControllerForItem:_mutableMenuItems[indexPath.row]];
+    [self openEditViewControllerForItem:_menuItems[indexPath.row]];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self openEditViewControllerForItem:_mutableMenuItems[indexPath.row]];
+    [self openEditViewControllerForItem:_menuItems[indexPath.row]];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     if ([segue.identifier isEqualToString:@"toEditItemViewController"]) {
-        SYEditItemViewController* editItemViewController = segue.destinationViewController;
-        editItemViewController.item = _selectedItem;
+        SYEditTextViewController* editItemViewController = segue.destinationViewController;
+        editItemViewController.title = _selectedItem[@"title"];
+        editItemViewController.initialText = _selectedItem[@"content"];
         editItemViewController.textChangedBlock = ^(NSString* newText) {
             NSMutableDictionary* mutableItem = [NSMutableDictionary dictionaryWithDictionary:_selectedItem];
             [mutableItem setObject:newText forKey:@"content"];
-            [_mutableMenuItems replaceObjectAtIndex:[_mutableMenuItems indexOfObject:_selectedItem]
-                                         withObject:mutableItem];
+            NSMutableArray* mutableItems = [NSMutableArray arrayWithArray:_menuItems];
+            [mutableItems replaceObjectAtIndex:[mutableItems indexOfObject:_selectedItem]
+                                    withObject:mutableItem];
+            self.updateMenuItemsBlock(mutableItems);
         };
     }
 }
 
-- (void)openEditViewControllerForItem:(NSDictionary*)item {
+
+- (void)openEditViewControllerForItem:(NSDictionary*)item
+{
     _selectedItem = item;
     [self performSegueWithIdentifier:@"toEditItemViewController" sender:self];
 }
+
 
 @end

@@ -7,11 +7,5 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef void(^SYDismissBlock)();
 @interface SYEditHomeItemsTableViewController : UITableViewController
-
-@property (strong, readwrite) NSArray*          menuItems;
-@property (readwrite,   copy) SYDismissBlock    dismissBlock;
-
 @end
