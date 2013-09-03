@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250D570417D6259F0038E542 /* SYTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 250D570317D6259F0038E542 /* SYTextFieldCell.m */; };
+		250D570617D625AE0038E542 /* SYTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250D570517D625AE0038E542 /* SYTextFieldCell.xib */; };
+		250D570917D62B250038E542 /* SYOrganizationTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250D570817D62B250038E542 /* SYOrganizationTypeTableViewController.m */; };
 		2548557617D3E1F40075EAD9 /* SYEditTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2548557517D3E1F40075EAD9 /* SYEditTextViewController.m */; };
 		255152B717D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255152B617D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m */; };
 		255E6E2E17D47F8C005A09C8 /* SYEditGeoItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255E6E2D17D47F8C005A09C8 /* SYEditGeoItemsTableViewController.m */; };
 		255E6E3117D48215005A09C8 /* SYEditGeoItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255E6E3017D48215005A09C8 /* SYEditGeoItemViewController.m */; };
 		2565798517D47C1A00C825B4 /* SYEditRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2565798417D47C1A00C825B4 /* SYEditRootViewController.m */; };
+		2586C35B17D63822002823E2 /* SYEditSocialMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2586C35A17D63822002823E2 /* SYEditSocialMediaViewController.m */; };
+		2586C36117D63988002823E2 /* SYEditAddSocialNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2586C36017D63988002823E2 /* SYEditAddSocialNetworkViewController.m */; };
+		2586C36317D6745B002823E2 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2586C36217D6745B002823E2 /* AddressBookUI.framework */; };
+		2586C36517D6765A002823E2 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2586C36417D6765A002823E2 /* AddressBook.framework */; };
 		25B958D017D3629D0089DDA8 /* SYDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B958CF17D3629D0089DDA8 /* SYDataProvider.m */; };
 		5240EE2D17CEF8A3008E3F55 /* graphic-artist.png in Resources */ = {isa = PBXBuildFile; fileRef = 5240EE2C17CEF8A3008E3F55 /* graphic-artist.png */; };
 		52679F23175A5852005D8722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52679F22175A5852005D8722 /* UIKit.framework */; };
@@ -64,6 +71,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		250D570217D6259F0038E542 /* SYTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYTextFieldCell.h; sourceTree = "<group>"; };
+		250D570317D6259F0038E542 /* SYTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYTextFieldCell.m; sourceTree = "<group>"; };
+		250D570517D625AE0038E542 /* SYTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SYTextFieldCell.xib; sourceTree = "<group>"; };
+		250D570717D62B250038E542 /* SYOrganizationTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYOrganizationTypeTableViewController.h; sourceTree = "<group>"; };
+		250D570817D62B250038E542 /* SYOrganizationTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYOrganizationTypeTableViewController.m; sourceTree = "<group>"; };
 		2548557417D3E1F40075EAD9 /* SYEditTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditTextViewController.h; sourceTree = "<group>"; };
 		2548557517D3E1F40075EAD9 /* SYEditTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditTextViewController.m; sourceTree = "<group>"; };
 		255152B517D0616600E7C6A9 /* SYEditHomeItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditHomeItemsTableViewController.h; sourceTree = "<group>"; };
@@ -74,6 +86,12 @@
 		255E6E3017D48215005A09C8 /* SYEditGeoItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditGeoItemViewController.m; sourceTree = "<group>"; };
 		2565798317D47C1A00C825B4 /* SYEditRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditRootViewController.h; sourceTree = "<group>"; };
 		2565798417D47C1A00C825B4 /* SYEditRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditRootViewController.m; sourceTree = "<group>"; };
+		2586C35917D63822002823E2 /* SYEditSocialMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditSocialMediaViewController.h; sourceTree = "<group>"; };
+		2586C35A17D63822002823E2 /* SYEditSocialMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditSocialMediaViewController.m; sourceTree = "<group>"; };
+		2586C35F17D63988002823E2 /* SYEditAddSocialNetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditAddSocialNetworkViewController.h; sourceTree = "<group>"; };
+		2586C36017D63988002823E2 /* SYEditAddSocialNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditAddSocialNetworkViewController.m; sourceTree = "<group>"; };
+		2586C36217D6745B002823E2 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		2586C36417D6765A002823E2 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		25B958CE17D3629D0089DDA8 /* SYDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYDataProvider.h; sourceTree = "<group>"; };
 		25B958CF17D3629D0089DDA8 /* SYDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYDataProvider.m; sourceTree = "<group>"; };
 		5240EE2C17CEF8A3008E3F55 /* graphic-artist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graphic-artist.png"; sourceTree = "<group>"; };
@@ -155,6 +173,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2586C36517D6765A002823E2 /* AddressBook.framework in Frameworks */,
+				2586C36317D6745B002823E2 /* AddressBookUI.framework in Frameworks */,
 				BFC11EEB1771F0F1004C0A46 /* libz.1.2.5.dylib in Frameworks */,
 				BF4BC7B4175A77060092E52B /* MapKit.framework in Frameworks */,
 				52679F23175A5852005D8722 /* UIKit.framework in Frameworks */,
@@ -166,6 +186,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250D570117D6256A0038E542 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				250D570217D6259F0038E542 /* SYTextFieldCell.h */,
+				250D570317D6259F0038E542 /* SYTextFieldCell.m */,
+				250D570517D625AE0038E542 /* SYTextFieldCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		25B958C917D361350089DDA8 /* EditViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +209,12 @@
 				255E6E2D17D47F8C005A09C8 /* SYEditGeoItemsTableViewController.m */,
 				255E6E2F17D48215005A09C8 /* SYEditGeoItemViewController.h */,
 				255E6E3017D48215005A09C8 /* SYEditGeoItemViewController.m */,
+				250D570717D62B250038E542 /* SYOrganizationTypeTableViewController.h */,
+				250D570817D62B250038E542 /* SYOrganizationTypeTableViewController.m */,
+				2586C35917D63822002823E2 /* SYEditSocialMediaViewController.h */,
+				2586C35A17D63822002823E2 /* SYEditSocialMediaViewController.m */,
+				2586C35F17D63988002823E2 /* SYEditAddSocialNetworkViewController.h */,
+				2586C36017D63988002823E2 /* SYEditAddSocialNetworkViewController.m */,
 			);
 			name = EditViewControllers;
 			sourceTree = "<group>";
@@ -213,6 +249,8 @@
 		52679F21175A5852005D8722 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2586C36417D6765A002823E2 /* AddressBook.framework */,
+				2586C36217D6745B002823E2 /* AddressBookUI.framework */,
 				BFC11EEA1771F0F1004C0A46 /* libz.1.2.5.dylib */,
 				BF4BC7B3175A77060092E52B /* MapKit.framework */,
 				52679F22175A5852005D8722 /* UIKit.framework */,
@@ -225,6 +263,7 @@
 		52679F28175A5852005D8722 /* testing 2 */ = {
 			isa = PBXGroup;
 			children = (
+				250D570117D6256A0038E542 /* Views */,
 				25B958CD17D3628F0089DDA8 /* Model */,
 				25B958C917D361350089DDA8 /* EditViewControllers */,
 				52679F3A175A5852005D8722 /* MainStoryboard.storyboard */,
@@ -418,6 +457,7 @@
 				BF5DC6BC17B04F94000D29F6 /* nowIcon.png in Resources */,
 				BF5DC6BE17B04F9C000D29F6 /* schemaIcon.png in Resources */,
 				5240EE2D17CEF8A3008E3F55 /* graphic-artist.png in Resources */,
+				250D570617D625AE0038E542 /* SYTextFieldCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +472,7 @@
 				52679F33175A5852005D8722 /* smyayaAppDelegate.m in Sources */,
 				52679F3F175A5852005D8722 /* smyayaViewController.m in Sources */,
 				BF4BC7B7175A779A0092E52B /* Pins.m in Sources */,
+				2586C36117D63988002823E2 /* SYEditAddSocialNetworkViewController.m in Sources */,
 				BF4BC7BA175A78580092E52B /* FunView.m in Sources */,
 				BF4BC7BF175A82170092E52B /* MeView.m in Sources */,
 				BF6ABF04176376500067E380 /* PrefsTable.m in Sources */,
@@ -446,6 +487,7 @@
 				BFC2387F177396F200FFAB12 /* ThemeDownloadView.m in Sources */,
 				BF5AE1481775E47B00B6329D /* OpenXMLView.m in Sources */,
 				BF82B53F177B9417008A4F41 /* willItBlendViewController.m in Sources */,
+				2586C35B17D63822002823E2 /* SYEditSocialMediaViewController.m in Sources */,
 				BF96BA0E177FA15800B08342 /* CustomisTableView.m in Sources */,
 				BF96BA11177FA77B00B08342 /* CustomisDetailView.m in Sources */,
 				BFBD176A1780D352007717E9 /* aboutView.m in Sources */,
@@ -455,6 +497,8 @@
 				2565798517D47C1A00C825B4 /* SYEditRootViewController.m in Sources */,
 				255E6E2E17D47F8C005A09C8 /* SYEditGeoItemsTableViewController.m in Sources */,
 				255E6E3117D48215005A09C8 /* SYEditGeoItemViewController.m in Sources */,
+				250D570417D6259F0038E542 /* SYTextFieldCell.m in Sources */,
+				250D570917D62B250038E542 /* SYOrganizationTypeTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
