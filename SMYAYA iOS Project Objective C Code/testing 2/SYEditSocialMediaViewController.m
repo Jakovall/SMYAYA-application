@@ -8,6 +8,7 @@
 
 #import "SYEditSocialMediaViewController.h"
 #import "SYEditAddSocialNetworkViewController.h"
+#import "SocialNetworkItem.h"
 
 @interface SYEditSocialMediaViewController ()
 - (void)addBarButtonHandle:(id)barButton;
@@ -53,29 +54,50 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    
+    // if(!str){
+    Utility* info = [[Utility alloc] init];
+    networkItems = [info getdataval];
+    
+    
+    // NSLog(@"test %@",str);
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [networkItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
     
+    SocialNetworkItem* info = [networkItems objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = info.username;
+    cell.detailTextLabel.text = info.network;
     // Configure the cell...
     
     return cell;

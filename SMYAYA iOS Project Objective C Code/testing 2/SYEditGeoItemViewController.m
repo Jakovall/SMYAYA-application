@@ -9,11 +9,14 @@
 #import "SYEditGeoItemViewController.h"
 
 @interface SYEditGeoItemViewController ()
+-(void)cancelButtonHandle:(id)cancelBarButton;
 
 @end
 
 @implementation SYEditGeoItemViewController
 @synthesize geoItem, editCompletedBlock;
+@synthesize cancelBlock;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,15 +38,32 @@
      title = "white house";
      },
      */
-    NSAssert(geoItem, @"no geoItem to edit");
+    //NSAssert(geoItem, @"no geoItem to edit");
 //    _latitudeLabel.text     = geoItem[@"geolat"];
 //    _longtitudeLabel.text   = geoItem[@"geolong"];
-    _subtitleTextfield.text = geoItem[@"subtitle"];
-    _titleTextfield.text    = geoItem[@"title"];
-    self.title              = geoItem[@"title"];
+    if(geoItem){
+        _subtitleTextfield.text = geoItem[@"subtitle"];
+        _titleTextfield.text    = geoItem[@"title"];
+        self.title              = geoItem[@"title"];
+    }else{
+        UIBarButtonItem* addBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add"
+                                                                             style:UIBarButtonItemStyleDone
+                                                                            target:nil
+                                                                            action:nil];
+        self.navigationItem.rightBarButtonItem = addBarButtonItem;
+        self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+                                                                                  style:UIBarButtonItemStylePlain
+                                                                                 target:self
+                                                                                 action:@selector(cancelButtonHandle:)];
+        _subtitleTextfield.text = @"";
+        _titleTextfield.text    = @"";
+        self.title              = @"";
+    }
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    if(geoItem){
     NSString* originSubtitle = geoItem[@"subtitle"];
     NSString* originTitle    = geoItem[@"title"];
     NSString* newTitle       = _titleTextfield.text;
@@ -52,12 +72,18 @@
     if (![originSubtitle isEqualToString:newSubtitle] || ![originTitle isEqualToString:newTitle]) {
         editCompletedBlock(newTitle, newSubtitle);
     }
+    }
 }
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(void)cancelButtonHandle:(id)cancelBarButton
+{
+    cancelBlock();
 }
 
 @end

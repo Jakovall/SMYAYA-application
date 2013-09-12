@@ -118,9 +118,31 @@ typedef NS_ENUM(NSInteger, SYEditRootCell) {
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
         if (nameCell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"SYTextFieldCell"
-                                                 owner:self
-                                               options:nil] lastObject];
+           // cell = [[[NSBundle mainBundle] loadNibNamed:@"SYTextFieldCell"
+             //                                    owner:self
+               //                                options:nil] lastObject];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
+                                          reuseIdentifier:cellIdentifier];
+            UITextField *nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(80, 10, 215, 35)];
+            nameTextField.adjustsFontSizeToFitWidth = YES;
+            nameTextField.textColor = [UIColor blackColor];
+            
+            nameTextField.placeholder = @"example Name";
+            nameTextField.returnKeyType = UIReturnKeyDone;
+            
+            nameTextField.backgroundColor = [UIColor clearColor];
+            nameTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+            nameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+            nameTextField.tag = 0;
+            [nameTextField addTarget:self
+                              action:@selector(textFieldFinished:)
+                    forControlEvents:UIControlEventEditingDidEndOnExit];
+            nameTextField.clearButtonMode = UITextFieldViewModeNever;
+            [nameTextField setEnabled: YES];
+            
+            [cell.contentView addSubview:nameTextField];
+            cell.textLabel.text = @"Name";
+            
         }
         else {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
@@ -129,9 +151,9 @@ typedef NS_ENUM(NSInteger, SYEditRootCell) {
     }
     
     if (nameCell) {
-        SYTextFieldCell* textFieldCell = (SYTextFieldCell*)cell;
-        textFieldCell.labelTitle.text  = @"Name";
-        textFieldCell.textField.text   = @"Example Name";
+       // SYTextFieldCell* textFieldCell = (SYTextFieldCell*)cell;
+      //  textFieldCell.labelTitle.text  = @"Name";
+      //  textFieldCell.textField.text   = @"Example Name";
     }
     else {
         cell.textLabel.text = [self cellTitleAtCell:[self cellTypeAtIndexPath:indexPath]];
@@ -139,6 +161,11 @@ typedef NS_ENUM(NSInteger, SYEditRootCell) {
     }
     
     return cell;
+}
+
+- (IBAction)textFieldFinished:(id)sender
+{
+    [sender resignFirstResponder];
 }
 
 - (NSString*)cellTitleAtCell:(SYEditRootCell)cellType {

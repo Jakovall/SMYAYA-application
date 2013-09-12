@@ -14,7 +14,7 @@
     __weak IBOutlet UITextField *_subtitleTextfield;
 }
 
-
+@property (readwrite, copy) void(^cancelBlock)();
 @property (readwrite, strong) NSDictionary* geoItem;
 @property (readwrite, copy)   void(^editCompletedBlock)(NSString* newTitleText, NSString* newSubtitle);
 

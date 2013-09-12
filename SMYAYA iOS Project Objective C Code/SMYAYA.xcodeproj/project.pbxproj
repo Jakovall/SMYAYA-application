@@ -33,6 +33,9 @@
 		52679F3C175A5852005D8722 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52679F3A175A5852005D8722 /* MainStoryboard.storyboard */; };
 		52679F3F175A5852005D8722 /* smyayaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52679F3E175A5852005D8722 /* smyayaViewController.m */; };
 		5292672717797B8900A614D6 /* graphic.png in Resources */ = {isa = PBXBuildFile; fileRef = 5292672617797B8900A614D6 /* graphic.png */; };
+		578EF49617E179A200F56388 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 578EF49517E179A200F56388 /* check.png */; };
+		578EF49C17E1826300F56388 /* SocialNetworkItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 578EF49917E179B600F56388 /* SocialNetworkItem.m */; };
+		578EF49D17E1826300F56388 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 578EF49B17E179B600F56388 /* Utility.m */; };
 		BF08D4AF176FC6E600066752 /* Screen Shot 2013-06-17 at 6.35.07 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = BF08D4AE176FC6E600066752 /* Screen Shot 2013-06-17 at 6.35.07 PM.png */; };
 		BF32953D1763BB54005780A9 /* UserProfileSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = BF32953C1763BB54005780A9 /* UserProfileSettings.m */; };
 		BF3295461763D352005780A9 /* personalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3295451763D352005780A9 /* personalInfo.m */; };
@@ -112,6 +115,11 @@
 		52679F3D175A5852005D8722 /* smyayaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smyayaViewController.h; sourceTree = "<group>"; };
 		52679F3E175A5852005D8722 /* smyayaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smyayaViewController.m; sourceTree = "<group>"; };
 		5292672617797B8900A614D6 /* graphic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graphic.png; sourceTree = "<group>"; };
+		578EF49517E179A200F56388 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		578EF49817E179B600F56388 /* SocialNetworkItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialNetworkItem.h; sourceTree = "<group>"; };
+		578EF49917E179B600F56388 /* SocialNetworkItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkItem.m; sourceTree = "<group>"; };
+		578EF49A17E179B600F56388 /* Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		578EF49B17E179B600F56388 /* Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		BF08D4AE176FC6E600066752 /* Screen Shot 2013-06-17 at 6.35.07 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2013-06-17 at 6.35.07 PM.png"; path = "../Screen Shot 2013-06-17 at 6.35.07 PM.png"; sourceTree = "<group>"; };
 		BF32953B1763BB54005780A9 /* UserProfileSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileSettings.h; sourceTree = "<group>"; };
 		BF32953C1763BB54005780A9 /* UserProfileSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileSettings.m; sourceTree = "<group>"; };
@@ -189,6 +197,10 @@
 		250D570117D6256A0038E542 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				578EF49817E179B600F56388 /* SocialNetworkItem.h */,
+				578EF49917E179B600F56388 /* SocialNetworkItem.m */,
+				578EF49A17E179B600F56388 /* Utility.h */,
+				578EF49B17E179B600F56388 /* Utility.m */,
 				250D570217D6259F0038E542 /* SYTextFieldCell.h */,
 				250D570317D6259F0038E542 /* SYTextFieldCell.m */,
 				250D570517D625AE0038E542 /* SYTextFieldCell.xib */,
@@ -231,6 +243,7 @@
 		52679F13175A5852005D8722 = {
 			isa = PBXGroup;
 			children = (
+				578EF49517E179A200F56388 /* check.png */,
 				5292672617797B8900A614D6 /* graphic.png */,
 				52679F28175A5852005D8722 /* testing 2 */,
 				52679F21175A5852005D8722 /* Frameworks */,
@@ -458,6 +471,7 @@
 				BF5DC6BE17B04F9C000D29F6 /* schemaIcon.png in Resources */,
 				5240EE2D17CEF8A3008E3F55 /* graphic-artist.png in Resources */,
 				250D570617D625AE0038E542 /* SYTextFieldCell.xib in Resources */,
+				578EF49617E179A200F56388 /* check.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +482,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				578EF49C17E1826300F56388 /* SocialNetworkItem.m in Sources */,
+				578EF49D17E1826300F56388 /* Utility.m in Sources */,
 				52679F2F175A5852005D8722 /* main.m in Sources */,
 				52679F33175A5852005D8722 /* smyayaAppDelegate.m in Sources */,
 				52679F3F175A5852005D8722 /* smyayaViewController.m in Sources */,
