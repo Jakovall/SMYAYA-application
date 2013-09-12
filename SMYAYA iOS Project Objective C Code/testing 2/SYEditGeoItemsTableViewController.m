@@ -111,7 +111,7 @@
     if ([segue.identifier isEqualToString:@"toEditGeoItemViewController"]) {
         SYEditGeoItemViewController* editGeoItemViewController = segue.destinationViewController;
         NSAssert([editGeoItemViewController isKindOfClass:[SYEditGeoItemViewController class]], @"wrong controller");
-        
+        if(_selectedGeoItem){
         __weak SYEditGeoItemsTableViewController* weakSelf = self;
         editGeoItemViewController.editCompletedBlock = ^(NSString* newTitle,NSString* newSubtitle){
             NSMutableDictionary* mutableGeoItem = [NSMutableDictionary dictionaryWithDictionary:_selectedGeoItem];
@@ -126,7 +126,22 @@
         };
         NSAssert(_selectedGeoItem, @"selected geo item must be setted");
         editGeoItemViewController.geoItem = _selectedGeoItem;
+        }
+        else{
+            
+            editGeoItemViewController.cancelBlock =
+            ^{[self dismissViewControllerAnimated:YES
+                                       completion:nil];
+            };
+        }
+
     }
+}
+
+- (IBAction)addGeoItems:(id)sender{
+    _selectedGeoItem = nil;
+    [self performSegueWithIdentifier:@"toEditGeoItemViewController" sender:self];
+    // NSLog(@"add geo items");
 }
 
 @end

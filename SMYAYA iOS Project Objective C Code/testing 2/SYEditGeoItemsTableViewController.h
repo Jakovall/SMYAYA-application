@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SYEditGeoItemsTableViewController : UITableViewController
+- (IBAction)addGeoItems:(id)sender;
+
 
 @end

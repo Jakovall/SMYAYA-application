@@ -14,7 +14,7 @@
     NSDictionary*   _selectedItem;
 }
 
-@property (readwrite, strong) NSArray*  menuItems;
+@property (readwrite, strong) NSMutableArray*  menuItems;
 @property (readwrite, strong) void(^updateMenuItemsBlock) (NSArray* newHomeItems);
 
 - (void)openEditViewControllerForItem:(NSDictionary*)item;
@@ -172,5 +172,16 @@
     [self performSegueWithIdentifier:@"toEditItemViewController" sender:self];
 }
 
+- (IBAction)addHomeItems:(id)sender{
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic setObject:@"New" forKey: @"content"];
+    [dic setObject: @"New" forKey: @"title"];
+    [_menuItems addObject:dic];
+    
+    [self.tableView reloadData];
+
+}
 
 @end

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4504" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="33m-mN-NJL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11E2617" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="33m-mN-NJL">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <development version="4600" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3734.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--View Controller - About-->
@@ -15,7 +15,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oG3-g9-EWP">
-                                <rect key="frame" x="123" y="348" width="75" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Credits">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,7 +28,6 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mZp-bi-j2r">
-                                <rect key="frame" x="0.0" y="2" width="320" height="338"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="338" id="9zq-fO-Pfp"/>
@@ -83,7 +81,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WS8-d8-3xO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
@@ -112,11 +109,8 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kew-Ae-8fp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kew-Ae-8fp"/>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BYp-a5-SoB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="167"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="167" id="dk5-cL-YFY"/>
@@ -173,7 +167,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJM-1x-7fd">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -184,7 +177,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxO-sc-JCf">
-                                <rect key="frame" x="204" y="13" width="96" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="96" id="4G7-Cx-Shb"/>
                                 </constraints>
@@ -201,7 +193,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="C4x-FT-o2e">
-                                <rect key="frame" x="0.0" y="64" width="320" height="347"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BKW-9G-MRf" id="qFj-Wf-iun"/>
@@ -209,16 +200,13 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 </connections>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="efM-Jt-qTE">
-                                <rect key="frame" x="20" y="20" width="176" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="LowerKeyboard:" destination="BKW-9G-MRf" eventType="editingDidEndOnExit" id="Zxo-Ga-j06"/>
                                 </connections>
                             </textField>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="O2N-eg-HWf">
-                                <rect key="frame" x="150" y="240" width="20" height="20"/>
-                            </activityIndicatorView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="O2N-eg-HWf"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -260,7 +248,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LY-8r-n86">
-                                <rect key="frame" x="0.0" y="312" width="40" height="148"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="c0f-uk-v7l"/>
                                     <constraint firstAttribute="height" constant="148" id="lxP-38-Pp5"/>
@@ -278,7 +265,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Chris Dollinger, Original Obj C Programmer" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ADV-hD-DuD">
-                                <rect key="frame" x="20" y="151" width="280" height="34"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="EPq-GS-NlT"/>
@@ -287,7 +273,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Kurt Floyd, SMYAYA Icon Designer" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7gn-gr-63l">
-                                <rect key="frame" x="20" y="232" width="280" height="31"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="pSa-5q-z9M"/>
@@ -296,20 +281,17 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="chris.png" translatesAutoresizingMaskIntoConstraints="NO" id="xIP-fS-1vL">
-                                <rect key="frame" x="138" y="115" width="44" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="Mbn-Qk-VqK"/>
                                     <constraint firstAttribute="width" constant="44" id="elu-L7-XFf"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="graphic-artist.png" translatesAutoresizingMaskIntoConstraints="NO" id="cOI-Of-KVh">
-                                <rect key="frame" x="138" y="193" width="44" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="UJi-QE-B4l"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="John Amoratis, Youth Minister, Project Founder, App Designer, Web Programmer" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hCJ-OK-Zzw">
-                                <rect key="frame" x="20" y="60" width="280" height="47"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="aXs-Hk-EFW"/>
@@ -318,7 +300,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This app is dedicated to Bishop Persico of Erie for the purpose of evangelization and catechesis of young people." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Yfg-Qo-vz5">
-                                <rect key="frame" x="20" y="191" width="280" height="66"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="yp7-Nk-DAW"/>
@@ -327,7 +308,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fia-gS-ET9">
-                                <rect key="frame" x="20" y="330" width="280" height="75"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="cfk-AZ-6dL"/>
@@ -337,7 +317,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SiN-eM-mLm">
-                                <rect key="frame" x="20" y="255" width="280" height="75"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Zbu-WO-j3n"/>
@@ -347,7 +326,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="redraw" image="john.png" translatesAutoresizingMaskIntoConstraints="NO" id="xRi-qI-H8V">
-                                <rect key="frame" x="135" y="20" width="47" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="BVw-nV-G8R"/>
                                     <constraint firstAttribute="width" constant="47" id="ZVb-IQ-Kf8"/>
@@ -466,7 +444,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zp2-M1-NkA">
-                                <rect key="frame" x="74" y="14" width="226" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="226" id="NPu-e5-HMg"/>
                                 </constraints>
@@ -478,7 +455,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RrE-Vh-YOu">
-                                <rect key="frame" x="20" y="17" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -543,7 +519,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hh4-qT-d6G">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
@@ -609,7 +584,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmN-1H-1tG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -676,7 +650,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
             <objects>
                 <tableViewController id="hDp-ts-7ej" customClass="SYEditGeoItemsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PwH-uZ-6p5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -695,7 +669,15 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                             <outlet property="delegate" destination="hDp-ts-7ej" id="Jm7-ip-kD3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JQj-xj-Wut"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="JQj-xj-Wut">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bfr-ng-H6r">
+                            <connections>
+                                <action selector="addGeoItems:" destination="hDp-ts-7ej" id="yIT-zu-Ttt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="HWs-tg-f2B" kind="push" identifier="toEditGeoItemViewController" id="JmB-qu-Yvm"/>
                     </connections>
@@ -787,16 +769,14 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
             <objects>
                 <viewController id="HWs-tg-f2B" customClass="SYEditGeoItemViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SwW-IG-9pm">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R1K-Yo-RIT">
-                                <rect key="frame" x="20" y="20" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jNP-Vn-VCn">
-                                <rect key="frame" x="20" y="69" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -830,7 +810,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dN-cp-imr">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -923,7 +902,13 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                             <outlet property="delegate" destination="sHV-aK-6M0" id="HRq-07-5uv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="7KT-Zk-2BC"/>
+                    <navigationItem key="navigationItem" id="7KT-Zk-2BC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wpD-3a-aGb">
+                            <connections>
+                                <action selector="addHomeItems:" destination="sHV-aK-6M0" id="jsx-pz-MsB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="nmy-C4-03T" kind="push" identifier="toEditItemViewController" id="WGD-Vd-2HO"/>
                     </connections>
@@ -940,9 +925,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ORA-Ed-Agk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
-                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ORA-Ed-Agk"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1037,12 +1020,126 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
         <image name="nowIcon.png" width="28" height="23"/>
         <image name="schemaIcon.png" width="26" height="26"/>
     </resources>
+    <classes>
+        <class className="CustomisDetailView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomisDetailView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentOutlet" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="CustomisTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomisTableView.h"/>
+        </class>
+        <class className="FunView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FunView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="FunWeb" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="MeView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="PrefsListTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="backgroundImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NowView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NowView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="NowWeb" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="PrefsTable" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrefsTable.h"/>
+            <relationships>
+                <relationship kind="outlet" name="BackgroundPref" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SYEditAddSocialNetworkViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditAddSocialNetworkViewController.h"/>
+        </class>
+        <class className="SYEditGeoItemViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditGeoItemViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_subtitleTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="_titleTextfield" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SYEditGeoItemsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditGeoItemsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addGeoItems:"/>
+            </relationships>
+        </class>
+        <class className="SYEditHomeItemsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditHomeItemsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addHomeItems:"/>
+            </relationships>
+        </class>
+        <class className="SYEditRootViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditRootViewController.h"/>
+        </class>
+        <class className="SYEditSocialMediaViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditSocialMediaViewController.h"/>
+        </class>
+        <class className="SYEditTextViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditTextViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="SYOrganizationTypeTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYOrganizationTypeTableViewController.h"/>
+        </class>
+        <class className="ThemeDownloadView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThemeDownloadView.h"/>
+            <relationships>
+                <relationship kind="action" name="DownloadAction:"/>
+                <relationship kind="action" name="LowerKeyboard:"/>
+                <relationship kind="outlet" name="DownloadLink" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="UserProfileSettings" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserProfileSettings.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ProfileSelect" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="aboutView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/aboutView.h"/>
+        </class>
+        <class className="personalInfo" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/personalInfo.h"/>
+            <relationships>
+                <relationship kind="action" name="saveName:"/>
+                <relationship kind="outlet" name="nameValue" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="smyayaViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/smyayaViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="pinSetter" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="willItBlendViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/willItBlendViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="blendIt" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="4yh-h3-9rl"/>
+        <segue reference="WGD-Vd-2HO"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,8 @@
 
 #import "SYEditAddSocialNetworkViewController.h"
 #import "SYTextFieldCell.h"
+#import "SocialNetworkItem.h"
+#import "Utility.h"
 
 @interface SYEditAddSocialNetworkViewController () {
     NSArray* _networks;
@@ -33,13 +35,15 @@
     UIBarButtonItem* addBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add"
                                                                          style:UIBarButtonItemStyleDone
                                                                         target:nil
-                                                                        action:nil];
+                                                                        action:@selector(addButtonHandle:)];
     self.navigationItem.rightBarButtonItem = addBarButtonItem;
     self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(cancelButtonHandle:)];
     _networks = @[@"Twitter",@"Facebook",@"Instagram",@"YouTube",@"Google+",@"Tumblr"];
+    uarray = [[NSMutableArray alloc] init];
+    networkItems = [[Utility alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,6 +55,37 @@
 {
     NSAssert(cancelBlock, @"cancelBlock must be set");
     cancelBlock();
+}
+
+-(void)addButtonHandle:(id)sender
+{
+    
+    
+    if([networkSelected isEqualToString:@""] || [textFieldCell.textField.text isEqualToString:@""] || textFieldCell.textField.text == NULL || networkSelected == NULL || textFieldCell.textField.text == nil){
+        
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil message:@"A username and a social media service must be selected." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }else{
+        
+        SocialNetworkItem* info = [[SocialNetworkItem alloc] init];
+        //uarray = [[NSMutableArray alloc] init];
+        
+        info.username = textFieldCell.textField.text;
+        info.network = networkSelected;
+        //[uarray addObject:textFieldCell.textField.text];
+        
+        //[info.username addObject:textFieldCell.textField.text];
+        [networkItems adddata:info];
+        cancelBlock();
+    }
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if (buttonIndex == 1) {
+		//OK clicked
+	} else {
+	}
 }
 
 #pragma mark - Table view data source
@@ -85,13 +120,25 @@
         else {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                           reuseIdentifier:cellIdentifier];
-            UIButton* plusButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+            
+            //UIButton* plusButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+            //cell.accessoryView = plusButton;
+            plusButton =[UIButton buttonWithType:UIButtonTypeCustom];
+            [plusButton setFrame:CGRectMake(260, 5, 30, 30)];
+            [plusButton setBackgroundImage:[[UIImage imageNamed:@"check.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
+            [plusButton setBackgroundImage:[[UIImage imageNamed:@"check.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateSelected];
+            [plusButton setTag:indexPath.row];
+            // [cell addSubview:plusButton];
             cell.accessoryView = plusButton;
+            
+            cell.accessoryView.hidden = YES;
+
+            
         }
     }
     if (nameCell) {
-        SYTextFieldCell* textFieldCell = (SYTextFieldCell*)cell;
-        textFieldCell.textField.text   = @"Example Name";
+        textFieldCell = (SYTextFieldCell*)cell;
+        textFieldCell.textField.text   = @"";
         textFieldCell.labelTitle.text  = @"Username";
     }
     else {
@@ -100,6 +147,27 @@
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    UITableViewCell *cell =[tableView cellForRowAtIndexPath:indexPath];
+
+    networkSelected = _networks[indexPath.row];
+    
+    NSInteger sections = tableView.numberOfSections;
+    for (int section = 0; section < sections; section++) {
+        NSInteger rows =  [tableView numberOfRowsInSection:section];
+        for (int row = 0; row < rows; row++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+            UITableViewCell *cells = [self.tableView cellForRowAtIndexPath:indexPath];            cells.accessoryView.hidden= YES;
+        }
+    }
+    
+    cell.accessoryView.hidden = NO;
+}
+
+
 
 /*
 // Override to support conditional editing of the table view.

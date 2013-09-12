@@ -7,6 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface SYEditAddSocialNetworkViewController : UITableViewController
+#import "SYTextFieldCell.h"
+#import "Utility.h"
+
+@interface SYEditAddSocialNetworkViewController : UITableViewController{
+    
+    UIButton* plusButton;
+    SYTextFieldCell* textFieldCell;
+    NSString* networkSelected;
+    NSMutableArray* uarray;
+    Utility* networkItems;
+}
 @property (readwrite, copy) void(^cancelBlock)();
 @end

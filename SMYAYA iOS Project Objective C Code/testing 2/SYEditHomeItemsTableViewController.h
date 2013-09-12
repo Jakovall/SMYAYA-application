@@ -8,4 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @interface SYEditHomeItemsTableViewController : UITableViewController
+- (IBAction)addHomeItems:(id)sender;
+
 @end

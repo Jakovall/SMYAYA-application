@@ -8,5 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SYEditSocialMediaViewController : UITableViewController
+@interface SYEditSocialMediaViewController : UITableViewController{
+    
+    NSMutableArray *networkItems;
+
+}
 @end
