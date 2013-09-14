@@ -13,6 +13,55 @@
 
 static NSMutableArray *networkItems;
 
+NSString *street;
+
+NSString *city;
+
+NSString *country;
+
+NSString *latitude;
+NSString *longitude;
+
++(void)addStreet:(NSString*)data{
+    
+    street = data;
+}
++(NSString*)getStreet{
+    
+    return street;
+}
+
+
++(void)addCity:(NSString*)data{
+    city =data;
+    
+}
++(NSString*)getCity{
+    return city;
+}
+
++(void)addCountry:(NSString*)data{
+    
+    country =data;
+}
++(NSString*)getCountry{
+    return country;
+}
+
++(void)addLatitude:(NSString*)data{
+    latitude= data;
+}
++(NSString*)getLatitude{
+    return latitude;
+}
+
++(void)addLongitude:(NSString*)data{
+    longitude =data;
+}
++(NSString*)getLongitude{
+    return  longitude;
+}
+
 
 
 -(void) adddata:(SocialNetworkItem*)data{

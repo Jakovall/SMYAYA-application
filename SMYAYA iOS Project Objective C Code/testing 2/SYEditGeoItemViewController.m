@@ -7,6 +7,8 @@
 //
 
 #import "SYEditGeoItemViewController.h"
+#import "Utility.h"
+
 
 @interface SYEditGeoItemViewController ()
 -(void)cancelButtonHandle:(id)cancelBarButton;
@@ -15,7 +17,7 @@
 
 @implementation SYEditGeoItemViewController
 @synthesize geoItem, editCompletedBlock;
-@synthesize cancelBlock;
+@synthesize cancelBlock,street,city,country,latitude,longitude,addressInfo;;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,6 +63,27 @@
     }
 
 }
+
+- (void) viewWillAppear:(BOOL)animated{
+    
+    //SocialNetworkItem* info;
+    
+    // street = [info getdataval];
+    
+    // Utility* info;
+    street = [Utility getStreet];
+    city = [Utility getCity];
+    country = [Utility getCountry];
+    latitude = [Utility getLatitude];
+    longitude = [Utility getLongitude];
+    addressInfo.hidden = YES;
+    if([street length]!=0 || [city length]!=0 || [country length]!=0 || [latitude length]!=0 || [longitude length]!=0){
+        addressInfo.hidden = NO;
+        addressInfo.text = [NSString stringWithFormat:@"street:%@\ncity:%@\ncountry:%@\nlatitude:%@\nlongitude%@",street,city,country,latitude,longitude];
+    }
+    NSLog(@"street value is %@,city%@,country%@,lat %@,lon %@", street,city,country,latitude,longitude);
+}
+
 
 - (void)viewWillDisappear:(BOOL)animated {
     if(geoItem){
