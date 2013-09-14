@@ -9,6 +9,7 @@
 #import "SYEditHomeItemsTableViewController.h"
 #import "SYEditTextViewController.h"
 #import "SYDataProvider.h"
+#import "Utility.h"
 
 @interface SYEditHomeItemsTableViewController () {
     NSDictionary*   _selectedItem;
@@ -45,6 +46,7 @@
     self.tableView.editing = YES;
     self.tableView.allowsSelectionDuringEditing = YES;
     self.title = @"Home Items";
+    [Utility addHomeItemsCount:[_menuItems count]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -173,7 +175,7 @@
 }
 
 - (IBAction)addHomeItems:(id)sender{
-    
+    [Utility addHomeItemsCount:[_menuItems count]];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     
     [dic setObject:@"New" forKey: @"content"];

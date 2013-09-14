@@ -14,6 +14,7 @@
 #import "SYEditSocialMediaViewController.h"
 #import <AddressBookUI/AddressBookUI.h>
 #import <AddressBook/AddressBook.h>
+#import "Utility.h"
 
 
 typedef NS_ENUM(NSInteger, SYEditRootCell) {
@@ -43,7 +44,7 @@ typedef NS_ENUM(NSInteger, SYEditRootCell) {
 @end
 
 @implementation SYEditRootViewController
-@synthesize dismissBlock;
+@synthesize dismissBlock,tableView;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -75,7 +76,9 @@ typedef NS_ENUM(NSInteger, SYEditRootCell) {
         });
     }
 }
-
+-(void) viewWillAppear:(BOOL)animated{
+    [tableView reloadData];
+}
 
 - (void)saveButtonHandle:(id)saveButton
 {
@@ -145,7 +148,7 @@ typedef NS_ENUM(NSInteger, SYEditRootCell) {
             
         }
         else {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                           reuseIdentifier:cellIdentifier];
         }
     }
@@ -158,6 +161,8 @@ typedef NS_ENUM(NSInteger, SYEditRootCell) {
     else {
         cell.textLabel.text = [self cellTitleAtCell:[self cellTypeAtIndexPath:indexPath]];
         cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
+        cell.detailTextLabel.text =  [self cellSubtitleAtCell:[self cellTypeAtIndexPath:indexPath]];
+        
     }
     
     return cell;
@@ -190,10 +195,35 @@ typedef NS_ENUM(NSInteger, SYEditRootCell) {
             returnString = @"Social Media";
             break;
         case SYEditRootCellContactInfo:
-            returnString = @"Contacts Info";
+            returnString = @"Owners Info";
             break;
         default:
             NSAssert(0x00, @"unreachable");
+            break;
+    }
+    return returnString;
+}
+
+- (NSString*)cellSubtitleAtCell:(SYEditRootCell)cellType {
+    NSString* returnString = nil;
+    switch (cellType) {
+        case SYEditRootCellOrganizationType:
+            returnString = [Utility getOrganizationSelectedTitle];
+            break;
+        case SYEditRootCellHomeItems:
+            returnString = @"3 items";
+            break;
+        case SYEditRootCellNowPage:
+            returnString = [[NSUserDefaults standardUserDefaults] valueForKey:@"NewsURL"];
+            break;
+        case SYEditRootCellGeoItems:
+            returnString = @"5 items";
+            break;
+        case SYEditRootCellSocialMedia:
+            returnString = @"3 services";
+            break;
+        default:
+          //  NSAssert(0x00, @"unreachable");
             break;
     }
     return returnString;

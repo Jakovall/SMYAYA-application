@@ -22,6 +22,13 @@ NSString *country;
 NSString *latitude;
 NSString *longitude;
 
+NSIndexPath *indexPath;
+
+NSString *selectedOrgTitle;
+NSInteger* homeItems;
+
+NSString* pageUrl;
+
 +(void)addStreet:(NSString*)data{
     
     street = data;
@@ -73,6 +80,36 @@ NSString *longitude;
 
 -(NSMutableArray*)getdataval{
     return networkItems;
+}
+
++(void)addOrganizationSelectedIndex:(NSIndexPath*)data{
+    indexPath = data;
+}
++(NSIndexPath*)getOrganizationSelectedIndex{
+    return indexPath;
+}
+
++(void)addOrganizationSelectedTitle:(NSString*)data{
+    selectedOrgTitle = data;
+    
+}
++(NSString*)getOrganizationSelectedTitle{
+    
+    return selectedOrgTitle;
+}
+
++(void)addHomeItemsCount:(NSInteger*)data{
+    homeItems = data;
+}
++(NSInteger*)getHomeItemsCount{
+    return homeItems;
+}
+
++(void)addPageUrl:(NSString*)data{
+    pageUrl = data;
+}
++(NSString*)getPageUrl{
+    return pageUrl;
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "SYOrganizationTypeTableViewController.h"
+#import "Utility.h"
 
 @interface SYOrganizationTypeTableViewController () {
     NSArray*    _content;
@@ -65,8 +66,14 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:CellIdentifier];
-        UIButton* plusButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-        cell.accessoryView = plusButton;
+        //UIButton* plusButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+        //cell.accessoryView = plusButton;
+       // cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        if([Utility getOrganizationSelectedIndex].row == indexPath.row){
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+                
+        
     }
     NSString* title = _content[indexPath.row];
     cell.textLabel.text = title;
@@ -78,7 +85,15 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell =[tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    [Utility addOrganizationSelectedIndex:indexPath];
+    [Utility addOrganizationSelectedTitle:_content[indexPath.row]];
+   // [[NSNotificationCenter defaultCenter] postNotificationName:@"updateParent" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
+    
+    
+    
 }
 
 @end

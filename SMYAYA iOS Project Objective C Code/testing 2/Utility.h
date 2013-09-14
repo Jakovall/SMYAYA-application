@@ -30,4 +30,16 @@
 +(void)addLongitude:(NSString*)data;
 +(NSString*)getLongitude;
 
++(void)addOrganizationSelectedIndex:(NSIndexPath*)data;
++(NSIndexPath*)getOrganizationSelectedIndex;
+
++(void)addOrganizationSelectedTitle:(NSString*)data;
++(NSString*)getOrganizationSelectedTitle;
+
++(void)addHomeItemsCount:(NSInteger*)data;
++(NSInteger*)getHomeItemsCount;
+
++(void)addPageUrl:(NSString*)data;
++(NSString*)getPageUrl;
+
 @end

@@ -28,6 +28,7 @@ Kurt Floyd, Lead Graphic Designer
 */
 
 #import "NowView.h"
+#import "Utility.h"
 
 @interface NowView ()
 
@@ -50,6 +51,7 @@ Kurt Floyd, Lead Graphic Designer
 	// Do any additional setup after loading the view.
     NSString *URLString = [[NSUserDefaults standardUserDefaults] valueForKey:@"NewsURL"];
     NSURL *url = [NSURL URLWithString:URLString];
+    [Utility addPageUrl:URLString];
     [NowWeb loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
