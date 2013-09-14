@@ -10,4 +10,5 @@
 
 @interface SYEditRootViewController : UITableViewController
 @property (readwrite, copy) void(^dismissBlock)();
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @end
