@@ -18,6 +18,14 @@
 @property (readwrite, strong) NSDictionary* geoItem;
 @property (readwrite, copy)   void(^editCompletedBlock)(NSString* newTitleText, NSString* newSubtitle);
 
+@property (readwrite, strong) NSString* street;
+@property (readwrite, strong) NSString* city;
+@property (readwrite, strong) NSString* country;
+@property (readwrite, strong) NSString* latitude;
+@property (readwrite, strong) NSString* longitude;
+
+@property (readwrite, strong) IBOutlet UITextView* addressInfo;
+
 
 @end
 

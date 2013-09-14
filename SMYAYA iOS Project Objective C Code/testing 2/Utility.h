@@ -15,4 +15,19 @@
 -(void)adddata:(SocialNetworkItem*)data;
 -(NSMutableArray*)getdataval;
 
++(void)addStreet:(NSString*)data;
++(NSString*)getStreet;
+
++(void)addCity:(NSString*)data;
++(NSString*)getCity;
+
++(void)addCountry:(NSString*)data;
++(NSString*)getCountry;
+
++(void)addLatitude:(NSString*)data;
++(NSString*)getLatitude;
+
++(void)addLongitude:(NSString*)data;
++(NSString*)getLongitude;
+
 @end

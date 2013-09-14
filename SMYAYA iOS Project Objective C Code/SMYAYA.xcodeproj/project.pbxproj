@@ -71,6 +71,9 @@
 		BFC2387F177396F200FFAB12 /* ThemeDownloadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2387E177396F200FFAB12 /* ThemeDownloadView.m */; };
 		BFE5ACF5176683BE00D3551E /* NowView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE5ACF4176683BD00D3551E /* NowView.m */; };
 		BFE5ACFA17668ED000D3551E /* www in Resources */ = {isa = PBXBuildFile; fileRef = BFE5ACF917668ED000D3551E /* www */; };
+		EB9E23E717E34BA300405359 /* SYEditAddGeoPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9E23E617E34BA300405359 /* SYEditAddGeoPinViewController.m */; };
+		EB9E23EA17E34BDD00405359 /* Geopin.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9E23E917E34BDD00405359 /* Geopin.m */; };
+		EB9E23EC17E34D7B00405359 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9E23EB17E34D7B00405359 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,6 +177,11 @@
 		BFE5ACF3176683BD00D3551E /* NowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowView.h; sourceTree = "<group>"; };
 		BFE5ACF4176683BD00D3551E /* NowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowView.m; sourceTree = "<group>"; };
 		BFE5ACF917668ED000D3551E /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		EB9E23E517E34BA300405359 /* SYEditAddGeoPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditAddGeoPinViewController.h; sourceTree = "<group>"; };
+		EB9E23E617E34BA300405359 /* SYEditAddGeoPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditAddGeoPinViewController.m; sourceTree = "<group>"; };
+		EB9E23E817E34BDD00405359 /* Geopin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geopin.h; sourceTree = "<group>"; };
+		EB9E23E917E34BDD00405359 /* Geopin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geopin.m; sourceTree = "<group>"; };
+		EB9E23EB17E34D7B00405359 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9E23EC17E34D7B00405359 /* CoreLocation.framework in Frameworks */,
 				2586C36517D6765A002823E2 /* AddressBook.framework in Frameworks */,
 				2586C36317D6745B002823E2 /* AddressBookUI.framework in Frameworks */,
 				BFC11EEB1771F0F1004C0A46 /* libz.1.2.5.dylib in Frameworks */,
@@ -211,6 +220,8 @@
 		25B958C917D361350089DDA8 /* EditViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB9E23E517E34BA300405359 /* SYEditAddGeoPinViewController.h */,
+				EB9E23E617E34BA300405359 /* SYEditAddGeoPinViewController.m */,
 				255152B517D0616600E7C6A9 /* SYEditHomeItemsTableViewController.h */,
 				255152B617D0616600E7C6A9 /* SYEditHomeItemsTableViewController.m */,
 				2565798317D47C1A00C825B4 /* SYEditRootViewController.h */,
@@ -262,6 +273,7 @@
 		52679F21175A5852005D8722 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB9E23EB17E34D7B00405359 /* CoreLocation.framework */,
 				2586C36417D6765A002823E2 /* AddressBook.framework */,
 				2586C36217D6745B002823E2 /* AddressBookUI.framework */,
 				BFC11EEA1771F0F1004C0A46 /* libz.1.2.5.dylib */,
@@ -287,6 +299,8 @@
 				52679F31175A5852005D8722 /* smyayaAppDelegate.h */,
 				52679F32175A5852005D8722 /* smyayaAppDelegate.m */,
 				BF4BC7B5175A779A0092E52B /* Pins.h */,
+				EB9E23E817E34BDD00405359 /* Geopin.h */,
+				EB9E23E917E34BDD00405359 /* Geopin.m */,
 				BF4BC7B6175A779A0092E52B /* Pins.m */,
 				BF4BC7B8175A78580092E52B /* FunView.h */,
 				BF4BC7B9175A78580092E52B /* FunView.m */,
@@ -515,6 +529,8 @@
 				255E6E3117D48215005A09C8 /* SYEditGeoItemViewController.m in Sources */,
 				250D570417D6259F0038E542 /* SYTextFieldCell.m in Sources */,
 				250D570917D62B250038E542 /* SYOrganizationTypeTableViewController.m in Sources */,
+				EB9E23E717E34BA300405359 /* SYEditAddGeoPinViewController.m in Sources */,
+				EB9E23EA17E34BDD00405359 /* Geopin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
