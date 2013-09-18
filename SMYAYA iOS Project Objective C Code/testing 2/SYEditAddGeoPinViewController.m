@@ -10,6 +10,7 @@
 #import "SocialNetworkItem.h"
 #import "SYEditGeoItemViewController.h"
 #import "Utility.h"
+#import "SYEditForwardGeoMapViewController.h"
 
 #define SPAN 0.2f;
 
@@ -38,7 +39,21 @@
     longValue = @"";
     
     spinner.hidden =YES;
-	
+   
+    	
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSLog(@"self is %@",self);
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSLog(@"dissaper");
+    NSLog(@"self is dis%@",self);
+   [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }
 
 #pragma mark - Table view data source
@@ -81,10 +96,12 @@
                     forControlEvents:UIControlEventEditingDidEndOnExit];
             street.clearButtonMode = UITextFieldViewModeNever;
             [street setEnabled: YES];
-            
+            [street becomeFirstResponder];
             [cell.contentView addSubview:street];
             cell.textLabel.text = @"Street";
             //cell.detailTextLabel.text= @"example Name";
+            
+            
         }
         else if(indexPath.section==1){
             
@@ -145,6 +162,63 @@
 }
 
 
+
+- (void)keyboardWillShow:(NSNotification *)note {
+    
+	   
+    [self performSelector:(@selector(checkKeyBoard)) withObject:nil afterDelay:0];
+
+    
+}
+
+
+- (BOOL) findKeyboard:(UIView *) superView;
+{
+    UIView *currentView;
+    if ([superView.subviews count] > 0) {
+        for(int i = 0; i < [superView.subviews count]; i++)
+        {
+            
+            currentView = [superView.subviews objectAtIndex:i];
+            if([[currentView description] hasPrefix:@"<UIKeyboard"] == YES)
+            {
+                
+               
+                UIButton *dot = [UIButton buttonWithType:UIButtonTypeCustom];
+				dot.frame = CGRectMake(228, 167, 106, 53);
+				[dot setImage:[UIImage imageNamed:@"find.PNG"] forState:UIControlStateNormal];
+				[dot setImage:[UIImage imageNamed:@"find.PNG"] forState:UIControlStateHighlighted];
+				[currentView addSubview:dot];
+				[dot addTarget:self action:@selector(showGeoLocation:)  forControlEvents:UIControlEventTouchUpInside];
+                
+                return YES;
+            }
+            if ([self findKeyboard:currentView]) return YES;
+        }
+    }
+    
+    return NO;
+    
+}
+
+
+-(void) checkKeyBoard {
+    UIWindow* tempWindow;
+    
+    for(int c = 0; c < [[[UIApplication sharedApplication] windows] count]; c ++)
+    {
+        tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:c];
+        if ([self findKeyboard:tempWindow])
+            NSLog(@"Finally, I found it");
+    }
+}
+
+
+
+
+
+
+
 - (IBAction)textFieldFinished:(id)sender
 {
     [sender resignFirstResponder];
@@ -152,11 +226,11 @@
 
 - (IBAction)showGeoLocation:(id)sender{
     
-    
+    [self performSegueWithIdentifier:@"toEditForwardGeoMapViewController" sender:self];
     //[street resignFirstResponder];
    // [city resignFirstResponder];
    // [country resignFirstResponder];
-    [spinner setHidden:NO];
+   /* [spinner setHidden:NO];
     [spinner startAnimating];
     
     if (!self.geocoder) {
@@ -199,11 +273,24 @@
             
             
         }
-           }];
+           }];*/
     
   
     
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toEditForwardGeoMapViewController"]) {
+        [Utility addStreet:street.text];
+        [Utility addCity:city.text];
+        [Utility addCountry:country.text];
+       // SYEditForwardGeoMapViewController* editForwardGeoMapViewController = segue.destinationViewController;
+       // editForwardGeoMapViewController.street = street.text;
+        
+           }
+    
+}
+
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

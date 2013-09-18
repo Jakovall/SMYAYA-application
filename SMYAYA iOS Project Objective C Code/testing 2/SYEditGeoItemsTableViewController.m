@@ -9,6 +9,7 @@
 #import "SYEditGeoItemsTableViewController.h"
 #import "SYDataProvider.h"
 #import "SYEditGeoItemViewController.h"
+#import "Utility.h"
 
 
 @interface SYEditGeoItemsTableViewController () {
@@ -136,13 +137,20 @@
         }
 
     }
+    
 }
 
 - (IBAction)addGeoItems:(id)sender{
     _selectedGeoItem = nil;
+    [Utility addCity:@""];
+    [Utility addCountry:@""];
+    [Utility addStreet:@""];
+    [Utility addLatitude:@""];
+    [Utility addLongitude:@""];
     [self performSegueWithIdentifier:@"toEditGeoItemViewController" sender:self];
     // NSLog(@"add geo items");
 }
+
 
 @end
 

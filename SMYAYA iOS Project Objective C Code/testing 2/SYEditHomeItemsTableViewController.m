@@ -152,7 +152,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"toEditItemViewController"]) {
+    if ([segue.identifier isEqualToString:@"toEditHomeItemViewController"]) {
         SYEditTextViewController* editItemViewController = segue.destinationViewController;
         editItemViewController.title = _selectedItem[@"title"];
         editItemViewController.initialText = _selectedItem[@"content"];
@@ -171,7 +171,7 @@
 - (void)openEditViewControllerForItem:(NSDictionary*)item
 {
     _selectedItem = item;
-    [self performSegueWithIdentifier:@"toEditItemViewController" sender:self];
+    [self performSegueWithIdentifier:@"toEditHomeItemViewController" sender:self];
 }
 
 - (IBAction)addHomeItems:(id)sender{

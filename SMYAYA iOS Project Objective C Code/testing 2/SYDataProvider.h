@@ -17,5 +17,7 @@
 @property (readonly) NSString*  title;
 @property (readonly) NSURL*     nowURL;
 
++(void)addGeolocations:(NSMutableArray*)data;
++(NSMutableArray*)getGeolocations;
 
 @end
