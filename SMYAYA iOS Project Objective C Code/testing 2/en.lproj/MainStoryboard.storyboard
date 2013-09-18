@@ -765,10 +765,25 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
             </objects>
             <point key="canvasLocation" x="4383" y="-1038"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pAO-Ae-txo">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="a6e-G8-sBS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="izn-5i-PN1">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6Wi-aj-FSo" kind="relationship" relationship="rootViewController" id="E0I-EW-ggu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nnd-t3-EcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4748" y="-1670"/>
+        </scene>
         <!--Edit Geo Item View Controller-->
         <scene sceneID="y2A-rw-ju4">
             <objects>
-                <viewController id="HWs-tg-f2B" customClass="SYEditGeoItemViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="toEditGeoItemViewController" id="HWs-tg-f2B" customClass="SYEditGeoItemViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SwW-IG-9pm">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -783,8 +798,8 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Dx-QP-ZTI">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="271" id="TjF-zt-48G"/>
-                                    <constraint firstAttribute="height" constant="34" id="W1b-jk-SwQ"/>
+                                    <constraint firstAttribute="height" constant="64" id="lL7-a2-5j4"/>
+                                    <constraint firstAttribute="width" constant="271" id="shi-ey-hGI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Set Pin">
@@ -794,9 +809,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="p6Y-Hg-38K" kind="modal" id="bRc-3Z-up8"/>
-                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms6-4F-us1">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -807,18 +819,29 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="2hO-Ua-26U">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HWs-tg-f2B" id="UXY-SV-NJS"/>
+                                    <outlet property="delegate" destination="HWs-tg-f2B" id="Er9-u9-Jbh"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ms6-4F-us1" secondAttribute="bottom" constant="33" id="7qy-bT-ikS"/>
                             <constraint firstItem="jNP-Vn-VCn" firstAttribute="leading" secondItem="SwW-IG-9pm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="BEw-jd-6ty"/>
-                            <constraint firstItem="ms6-4F-us1" firstAttribute="leading" secondItem="SwW-IG-9pm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="DoI-kA-UBH"/>
-                            <constraint firstItem="R1K-Yo-RIT" firstAttribute="top" secondItem="SwW-IG-9pm" secondAttribute="top" constant="20" symbolic="YES" type="default" id="H5G-4x-ChW"/>
-                            <constraint firstItem="ms6-4F-us1" firstAttribute="top" secondItem="SwW-IG-9pm" secondAttribute="top" constant="187" id="MTU-rK-X9n"/>
+                            <constraint firstItem="2hO-Ua-26U" firstAttribute="top" secondItem="SwW-IG-9pm" secondAttribute="top" type="default" id="Fxg-Kv-tvv"/>
+                            <constraint firstItem="2hO-Ua-26U" firstAttribute="bottom" secondItem="SwW-IG-9pm" secondAttribute="bottom" type="default" id="N0R-H4-QTH"/>
+                            <constraint firstItem="7Dx-QP-ZTI" firstAttribute="top" secondItem="SwW-IG-9pm" secondAttribute="top" constant="20" symbolic="YES" type="default" id="N6S-WF-rve"/>
                             <constraint firstAttribute="trailing" secondItem="R1K-Yo-RIT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="U4o-hF-tTb"/>
                             <constraint firstItem="7Dx-QP-ZTI" firstAttribute="leading" secondItem="SwW-IG-9pm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Wks-ng-eCe"/>
-                            <constraint firstItem="jNP-Vn-VCn" firstAttribute="top" secondItem="SwW-IG-9pm" secondAttribute="top" constant="69" id="eik-V7-yaZ"/>
+                            <constraint firstItem="2hO-Ua-26U" firstAttribute="trailing" secondItem="SwW-IG-9pm" secondAttribute="trailing" type="default" id="YnW-9K-JPw"/>
+                            <constraint firstItem="2hO-Ua-26U" firstAttribute="leading" secondItem="SwW-IG-9pm" secondAttribute="leading" type="default" id="ktU-KY-4Nf"/>
+                            <constraint firstItem="jNP-Vn-VCn" firstAttribute="top" secondItem="SwW-IG-9pm" secondAttribute="top" constant="112" id="nOO-xM-QMo"/>
                             <constraint firstItem="R1K-Yo-RIT" firstAttribute="leading" secondItem="SwW-IG-9pm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rc0-5s-Uaq"/>
-                            <constraint firstItem="7Dx-QP-ZTI" firstAttribute="top" secondItem="SwW-IG-9pm" secondAttribute="top" constant="121" id="tFu-hL-LlZ"/>
+                            <constraint firstItem="R1K-Yo-RIT" firstAttribute="top" secondItem="SwW-IG-9pm" secondAttribute="top" constant="160" id="uOT-jq-QTv"/>
+                            <constraint firstItem="ms6-4F-us1" firstAttribute="leading" secondItem="SwW-IG-9pm" secondAttribute="leading" constant="26" id="vVx-Ys-KmM"/>
                             <constraint firstAttribute="trailing" secondItem="jNP-Vn-VCn" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="va5-N4-nhS"/>
                         </constraints>
                     </view>
@@ -827,6 +850,8 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         <outlet property="_subtitleTextfield" destination="jNP-Vn-VCn" id="1NL-lJ-dbx"/>
                         <outlet property="_titleTextfield" destination="R1K-Yo-RIT" id="O2Z-RW-V0w"/>
                         <outlet property="addressInfo" destination="ms6-4F-us1" id="B8X-lT-30i"/>
+                        <outlet property="tableViews" destination="2hO-Ua-26U" id="ivg-Dr-4qj"/>
+                        <segue destination="p6Y-Hg-38K" kind="modal" identifier="isAddGeoPinViewController" id="FVx-ma-xA5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rrl-On-TgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -860,10 +885,9 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dG8-ee-y1W">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="269" id="TlX-s3-zqi"/>
-                                    <constraint firstAttribute="height" constant="35" id="rQJ-Ze-Xr0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Show">
+                                <state key="normal" title="Find">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -871,14 +895,9 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showGeoLocation:" destination="p6Y-Hg-38K" eventType="touchUpInside" id="Lz5-OI-dZg"/>
+                                    <segue destination="a6e-G8-sBS" kind="modal" identifier="toEditForwardGeoMapViewController" id="xtI-1i-qBL"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KKm-1d-Gdz">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="176" id="x2b-2B-HeD"/>
-                                </constraints>
-                            </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="wh1-R6-fAh">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -894,16 +913,13 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dG8-ee-y1W" firstAttribute="top" secondItem="wh1-R6-fAh" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="005-NQ-MLx"/>
+                            <constraint firstItem="wh1-R6-fAh" firstAttribute="centerX" secondItem="y0Y-jS-Q40" secondAttribute="centerX" type="default" id="1hU-IE-lME"/>
+                            <constraint firstItem="dG8-ee-y1W" firstAttribute="leading" secondItem="R7p-01-sVM" secondAttribute="leading" constant="28" id="2TG-mX-9Ig"/>
                             <constraint firstAttribute="bottom" secondItem="Och-d5-lKO" secondAttribute="bottom" constant="207" id="2ZS-u3-xFA"/>
-                            <constraint firstItem="KKm-1d-Gdz" firstAttribute="bottom" secondItem="R7p-01-sVM" secondAttribute="bottom" type="default" id="3ds-be-IM4"/>
                             <constraint firstItem="y0Y-jS-Q40" firstAttribute="leading" secondItem="R7p-01-sVM" secondAttribute="leading" type="default" id="5iB-Rf-Wtf"/>
-                            <constraint firstItem="KKm-1d-Gdz" firstAttribute="leading" secondItem="R7p-01-sVM" secondAttribute="leading" type="default" id="Bba-pi-qh5"/>
-                            <constraint firstItem="Och-d5-lKO" firstAttribute="centerX" secondItem="KKm-1d-Gdz" secondAttribute="centerX" type="default" id="CbR-g9-RaB"/>
-                            <constraint firstItem="dG8-ee-y1W" firstAttribute="leading" secondItem="R7p-01-sVM" secondAttribute="leading" constant="29" id="Jtu-mw-7IC"/>
                             <constraint firstItem="wh1-R6-fAh" firstAttribute="top" secondItem="R7p-01-sVM" secondAttribute="top" constant="45" id="Kuw-Vh-m4P"/>
-                            <constraint firstAttribute="bottom" secondItem="dG8-ee-y1W" secondAttribute="bottom" constant="183" id="NCX-sQ-ul4"/>
                             <constraint firstItem="Och-d5-lKO" firstAttribute="centerX" secondItem="wh1-R6-fAh" secondAttribute="centerX" type="default" id="P3K-Rk-qef"/>
-                            <constraint firstItem="KKm-1d-Gdz" firstAttribute="trailing" secondItem="R7p-01-sVM" secondAttribute="trailing" type="default" id="aBP-dL-rXU"/>
                             <constraint firstItem="y0Y-jS-Q40" firstAttribute="top" secondItem="R7p-01-sVM" secondAttribute="top" constant="-1" id="egF-CH-wVe"/>
                             <constraint firstItem="y0Y-jS-Q40" firstAttribute="trailing" secondItem="R7p-01-sVM" secondAttribute="trailing" type="default" id="vYJ-mF-9s9"/>
                         </constraints>
@@ -911,13 +927,88 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                     <navigationItem key="navigationItem" title="Title" id="FEc-5r-xXL"/>
                     <connections>
                         <outlet property="addressTable" destination="wh1-R6-fAh" id="PiM-g6-8fh"/>
-                        <outlet property="geoPin" destination="KKm-1d-Gdz" id="6Ll-ux-Ebt"/>
                         <outlet property="spinner" destination="Och-d5-lKO" id="pSy-Ka-yC5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Xh-Rq-g1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4335" y="-1663"/>
+            <point key="canvasLocation" x="4351" y="-1675"/>
+        </scene>
+        <!--Edit Forward Geo Map View Controller-->
+        <scene sceneID="RQj-Tg-cvp">
+            <objects>
+                <viewController id="6Wi-aj-FSo" customClass="SYEditForwardGeoMapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DUE-7y-JPS">
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8zC-be-1j3"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1Lq-Fn-5uf"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8zC-be-1j3" firstAttribute="leading" secondItem="DUE-7y-JPS" secondAttribute="leading" type="default" id="Btw-0U-vtt"/>
+                            <constraint firstItem="8zC-be-1j3" firstAttribute="bottom" secondItem="DUE-7y-JPS" secondAttribute="bottom" type="default" id="P42-NO-omV"/>
+                            <constraint firstAttribute="bottom" secondItem="1Lq-Fn-5uf" secondAttribute="bottom" constant="154" id="a38-p6-TeD"/>
+                            <constraint firstItem="8zC-be-1j3" firstAttribute="trailing" secondItem="DUE-7y-JPS" secondAttribute="trailing" type="default" id="dWf-OS-Lag"/>
+                            <constraint firstItem="8zC-be-1j3" firstAttribute="top" secondItem="DUE-7y-JPS" secondAttribute="top" type="default" id="eYs-2p-Cdc"/>
+                            <constraint firstItem="1Lq-Fn-5uf" firstAttribute="centerX" secondItem="8zC-be-1j3" secondAttribute="centerX" type="default" id="ywe-8H-1Td"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="hdv-Qu-yxj">
+                        <barButtonItem key="leftBarButtonItem" title="Revise" id="O5L-zW-fe4">
+                            <connections>
+                                <action selector="reviseGeoPin:" destination="6Wi-aj-FSo" id="2ed-0U-IFB"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Accept" id="GtX-9v-toO">
+                            <connections>
+                                <action selector="acceptGeoPin:" destination="6Wi-aj-FSo" id="4v9-N0-4Za"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="geoPin" destination="8zC-be-1j3" id="bQo-PQ-hSI"/>
+                        <outlet property="spinner" destination="1Lq-Fn-5uf" id="bTW-1p-hO2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHu-gJ-O32" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5155" y="-1664"/>
+        </scene>
+        <!--Edit Home Item View Controller-->
+        <scene sceneID="qgE-wB-OtM">
+            <objects>
+                <viewController id="1CM-n4-Ww3" customClass="SYEditHomeItemViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1mK-ry-dZv">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ht8-cQ-m9b">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ht8-cQ-m9b" firstAttribute="bottom" secondItem="1mK-ry-dZv" secondAttribute="bottom" type="default" id="GRB-FB-1D8"/>
+                            <constraint firstItem="ht8-cQ-m9b" firstAttribute="trailing" secondItem="1mK-ry-dZv" secondAttribute="trailing" type="default" id="JKb-ma-NDc"/>
+                            <constraint firstItem="ht8-cQ-m9b" firstAttribute="top" secondItem="1mK-ry-dZv" secondAttribute="top" type="default" id="wGU-eG-L3m"/>
+                            <constraint firstItem="ht8-cQ-m9b" firstAttribute="leading" secondItem="1mK-ry-dZv" secondAttribute="leading" type="default" id="wIB-fi-G0g"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="flf-oC-1LI"/>
+                    <connections>
+                        <outlet property="_textView" destination="ht8-cQ-m9b" id="ltt-6O-uUI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adh-Kd-vkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4063" y="-3052"/>
         </scene>
         <!--Edit Text View Controller-->
         <scene sceneID="rE4-gK-i0n">
@@ -1060,7 +1151,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="nmy-C4-03T" kind="push" identifier="toEditItemViewController" id="WGD-Vd-2HO"/>
+                        <segue destination="1CM-n4-Ww3" kind="push" identifier="toEditHomeItemViewController" id="LAw-xl-zfY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9p-FO-iby" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1170,149 +1261,9 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
         <image name="nowIcon.png" width="28" height="23"/>
         <image name="schemaIcon.png" width="26" height="26"/>
     </resources>
-    <classes>
-        <class className="CustomisDetailView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomisDetailView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="contentOutlet" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="CustomisTableView" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomisTableView.h"/>
-        </class>
-        <class className="FunView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FunView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="FunWeb" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="MeView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="PrefsListTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="backgroundImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NowView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NowView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="NowWeb" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="PrefsTable" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrefsTable.h"/>
-            <relationships>
-                <relationship kind="outlet" name="BackgroundPref" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="SYEditAddGeoPinViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditAddGeoPinViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelGeoPin:"/>
-                <relationship kind="action" name="saveGeoPin:"/>
-                <relationship kind="action" name="showGeoLocation:"/>
-                <relationship kind="outlet" name="addressTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="city" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="country" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="geoPin" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="street" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SYEditAddSocialNetworkViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditAddSocialNetworkViewController.h"/>
-        </class>
-        <class className="SYEditGeoItemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditGeoItemViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="_subtitleTextfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_titleTextfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="addressInfo" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="SYEditGeoItemsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditGeoItemsTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addGeoItems:"/>
-            </relationships>
-        </class>
-        <class className="SYEditHomeItemsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditHomeItemsTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addHomeItems:"/>
-            </relationships>
-        </class>
-        <class className="SYEditRootViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditRootViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="textFieldFinished:"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="SYEditSocialMediaViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditSocialMediaViewController.h"/>
-        </class>
-        <class className="SYEditTextViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditTextViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="previewUrl:"/>
-                <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="_textView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="_webView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="nowUrl" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SYOrganizationTypeTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYOrganizationTypeTableViewController.h"/>
-        </class>
-        <class className="ThemeDownloadView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThemeDownloadView.h"/>
-            <relationships>
-                <relationship kind="action" name="DownloadAction:"/>
-                <relationship kind="action" name="LowerKeyboard:"/>
-                <relationship kind="outlet" name="DownloadLink" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="UserProfileSettings" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserProfileSettings.h"/>
-            <relationships>
-                <relationship kind="outlet" name="ProfileSelect" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="aboutView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/aboutView.h"/>
-        </class>
-        <class className="personalInfo" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/personalInfo.h"/>
-            <relationships>
-                <relationship kind="action" name="saveName:"/>
-                <relationship kind="outlet" name="nameValue" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="smyayaViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/smyayaViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pinSetter" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="willItBlendViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/willItBlendViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="blendIt" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="4yh-h3-9rl"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -25,6 +25,9 @@
 @property (readwrite, strong) NSString* longitude;
 
 @property (readwrite, strong) IBOutlet UITextView* addressInfo;
+@property (readwrite, strong) IBOutlet UITableView* tableViews;
+@property (readwrite, strong)UITextField* titles;
+@property (readwrite, strong)UITextField*  subTitle;
 
 
 @end

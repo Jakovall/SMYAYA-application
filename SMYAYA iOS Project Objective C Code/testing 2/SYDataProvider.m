@@ -10,9 +10,13 @@
 
 @interface SYDataProvider ()
 -(NSString*)themePath;
+
 @end
 
 @implementation SYDataProvider
+
+
+static NSMutableArray *Geolocations;
 
 +(instancetype)sharedDataProvider {
     static dispatch_once_t onceToken;
@@ -57,7 +61,20 @@
     NSString* geoPath = [themePath stringByAppendingPathComponent:@"geo.json"];
     NSData *myData = [[NSData alloc]initWithContentsOfFile:geoPath]; //takes the data from the file in the "FeedURLPath" directory
     NSDictionary *myJSON = [NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingMutableContainers error:nil]; //makes a dictionary (kinda like an array ({}) using the data from "myData")
-    NSArray *Geolocations = [myJSON objectForKey:@"geolocations"]; //makes a multidimensional array using one of the arra
+    if(Geolocations == nil){
+        NSLog(@"sdafadsf");
+        Geolocations = [[NSMutableArray alloc]init];
+      Geolocations = [myJSON objectForKey:@"geolocations"]; //makes a multidimensional array using one of the arra
+    }
+    return Geolocations;
+}
+
++(void)addGeolocations:(NSMutableArray*)data{
+    
+    [Geolocations addObject:data];
+}
++(NSMutableArray*)getGeolocations{
+    
     return Geolocations;
 }
 

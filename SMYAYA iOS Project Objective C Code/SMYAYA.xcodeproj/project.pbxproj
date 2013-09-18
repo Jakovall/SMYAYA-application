@@ -74,6 +74,9 @@
 		EB9E23E717E34BA300405359 /* SYEditAddGeoPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9E23E617E34BA300405359 /* SYEditAddGeoPinViewController.m */; };
 		EB9E23EA17E34BDD00405359 /* Geopin.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9E23E917E34BDD00405359 /* Geopin.m */; };
 		EB9E23EC17E34D7B00405359 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9E23EB17E34D7B00405359 /* CoreLocation.framework */; };
+		EB9E254A17E8245400405359 /* SYEditForwardGeoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9E254917E8245300405359 /* SYEditForwardGeoMapViewController.m */; };
+		EBA2562117E86E7E005142E3 /* find.PNG in Resources */ = {isa = PBXBuildFile; fileRef = EBA2562017E86E7E005142E3 /* find.PNG */; };
+		EBA2562417E95D4B005142E3 /* SYEditHomeItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA2562317E95D4B005142E3 /* SYEditHomeItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,6 +185,11 @@
 		EB9E23E817E34BDD00405359 /* Geopin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geopin.h; sourceTree = "<group>"; };
 		EB9E23E917E34BDD00405359 /* Geopin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geopin.m; sourceTree = "<group>"; };
 		EB9E23EB17E34D7B00405359 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EB9E254817E8245300405359 /* SYEditForwardGeoMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditForwardGeoMapViewController.h; sourceTree = "<group>"; };
+		EB9E254917E8245300405359 /* SYEditForwardGeoMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditForwardGeoMapViewController.m; sourceTree = "<group>"; };
+		EBA2562017E86E7E005142E3 /* find.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find.PNG; sourceTree = "<group>"; };
+		EBA2562217E95D4B005142E3 /* SYEditHomeItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditHomeItemViewController.h; sourceTree = "<group>"; };
+		EBA2562317E95D4B005142E3 /* SYEditHomeItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditHomeItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +246,10 @@
 				2586C35A17D63822002823E2 /* SYEditSocialMediaViewController.m */,
 				2586C35F17D63988002823E2 /* SYEditAddSocialNetworkViewController.h */,
 				2586C36017D63988002823E2 /* SYEditAddSocialNetworkViewController.m */,
+				EB9E254817E8245300405359 /* SYEditForwardGeoMapViewController.h */,
+				EB9E254917E8245300405359 /* SYEditForwardGeoMapViewController.m */,
+				EBA2562217E95D4B005142E3 /* SYEditHomeItemViewController.h */,
+				EBA2562317E95D4B005142E3 /* SYEditHomeItemViewController.m */,
 			);
 			name = EditViewControllers;
 			sourceTree = "<group>";
@@ -254,6 +266,7 @@
 		52679F13175A5852005D8722 = {
 			isa = PBXGroup;
 			children = (
+				EBA2562017E86E7E005142E3 /* find.PNG */,
 				578EF49517E179A200F56388 /* check.png */,
 				5292672617797B8900A614D6 /* graphic.png */,
 				52679F28175A5852005D8722 /* testing 2 */,
@@ -486,6 +499,7 @@
 				5240EE2D17CEF8A3008E3F55 /* graphic-artist.png in Resources */,
 				250D570617D625AE0038E542 /* SYTextFieldCell.xib in Resources */,
 				578EF49617E179A200F56388 /* check.png in Resources */,
+				EBA2562117E86E7E005142E3 /* find.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +545,8 @@
 				250D570917D62B250038E542 /* SYOrganizationTypeTableViewController.m in Sources */,
 				EB9E23E717E34BA300405359 /* SYEditAddGeoPinViewController.m in Sources */,
 				EB9E23EA17E34BDD00405359 /* Geopin.m in Sources */,
+				EB9E254A17E8245400405359 /* SYEditForwardGeoMapViewController.m in Sources */,
+				EBA2562417E95D4B005142E3 /* SYEditHomeItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

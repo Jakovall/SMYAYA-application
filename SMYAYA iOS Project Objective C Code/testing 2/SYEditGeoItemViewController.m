@@ -8,6 +8,7 @@
 
 #import "SYEditGeoItemViewController.h"
 #import "Utility.h"
+#import "SYDataProvider.h"
 
 
 @interface SYEditGeoItemViewController ()
@@ -17,7 +18,7 @@
 
 @implementation SYEditGeoItemViewController
 @synthesize geoItem, editCompletedBlock;
-@synthesize cancelBlock,street,city,country,latitude,longitude,addressInfo;;
+@synthesize cancelBlock,street,city,country,latitude,longitude,addressInfo,tableViews,titles,subTitle;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -48,10 +49,10 @@
         _titleTextfield.text    = geoItem[@"title"];
         self.title              = geoItem[@"title"];
     }else{
-        UIBarButtonItem* addBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add"
+        UIBarButtonItem* addBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save"
                                                                              style:UIBarButtonItemStyleDone
-                                                                            target:nil
-                                                                            action:nil];
+                                                                            target:self
+                                                                            action:@selector(saveButtonHandle:)];
         self.navigationItem.rightBarButtonItem = addBarButtonItem;
         self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
                                                                                   style:UIBarButtonItemStylePlain
@@ -82,6 +83,9 @@
         addressInfo.text = [NSString stringWithFormat:@"street:%@\ncity:%@\ncountry:%@\nlatitude:%@\nlongitude%@",street,city,country,latitude,longitude];
     }
     NSLog(@"street value is %@,city%@,country%@,lat %@,lon %@", street,city,country,latitude,longitude);
+  // [self.tableViews reloadSections:0 withRowAnimation:UITableViewRowAnimationNone];
+    [tableViews reloadData];
+   
 }
 
 
@@ -108,5 +112,145 @@
 {
     cancelBlock();
 }
+
+-(void)saveButtonHandle:(id)sender{
+    
+    NSLog(@"saved data %@",titles.text);
+    NSMutableDictionary* geoLocationItems = [[NSMutableDictionary alloc]init];
+    
+    [geoLocationItems setObject:[Utility getLatitude]  forKey:@"geolat"];
+    [geoLocationItems setObject:[Utility getLongitude]  forKey:@"geolong"];
+    [geoLocationItems setObject:titles.text  forKey:@"subtitle"];
+    [geoLocationItems setObject:subTitle.text  forKey:@"title"];
+    
+    NSLog(@"geolocations %@", geoLocationItems);
+    
+    [SYDataProvider addGeolocations:(NSMutableArray*)geoLocationItems];
+    [self.parentViewController dismissViewControllerAnimated:YES
+                             completion:nil];
+    
+}
+
+#pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
+    
+    return 1;
+}
+
+
+- (UITableViewCell*)tableView:(UITableView *)tableView
+        cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString* const BYRootBasicCellID = @"BasicCell";
+    NSString* const BYRootNameCellID  = @"SYTextFieldCell";
+    BOOL nameCell = !indexPath.section && !indexPath.row;
+    
+    NSString* cellIdentifier = nameCell ? BYRootNameCellID : BYRootBasicCellID;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    //if (!cell) {
+        if(indexPath.section == 0){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
+                                          reuseIdentifier:cellIdentifier];
+                 
+            cell.textLabel.text = @"Set Pin...";
+            if([street length]!=0 || [city length]!=0 || [country length]!=0 || [latitude length]!=0 || [longitude length]!=0){
+            cell.detailTextLabel.text = addressInfo.text;
+            cell.detailTextLabel.font=[UIFont fontWithName:@"Arial" size:15.0];
+            cell.detailTextLabel.textAlignment = NSTextAlignmentLeft;
+            cell.detailTextLabel.numberOfLines = 5;
+            }else{
+                
+                cell.detailTextLabel.text = @"";
+            }
+
+        }
+        else if(indexPath.section==1){
+            
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
+                                          reuseIdentifier:cellIdentifier];
+            titles = [[UITextField alloc] initWithFrame:CGRectMake(80, 10, 215, 35)];
+            titles.adjustsFontSizeToFitWidth = YES;
+            titles.textColor = [UIColor blackColor];
+            
+            titles.placeholder = @"Title Name";
+            titles.returnKeyType = UIReturnKeyDone;
+            titles.text = _titleTextfield.text;
+            titles.backgroundColor = [UIColor clearColor];
+            titles.autocorrectionType = UITextAutocorrectionTypeNo;
+            titles.autocapitalizationType = UITextAutocapitalizationTypeNone;
+            titles.tag = 0;
+            [titles addTarget:self
+                     action:@selector(textFieldFinished:)
+           forControlEvents:UIControlEventEditingDidEndOnExit];
+            titles.clearButtonMode = UITextFieldViewModeNever;
+            [titles setEnabled: YES];
+            
+            [cell.contentView addSubview:titles];
+            cell.textLabel.text = @"Title";
+            cell.textLabel.backgroundColor = [UIColor clearColor];
+            
+        }
+        else{
+            
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
+                                          reuseIdentifier:cellIdentifier];
+            subTitle = [[UITextField alloc] initWithFrame:CGRectMake(80, 10, 215, 35)];
+            subTitle.adjustsFontSizeToFitWidth = YES;
+            subTitle.textColor = [UIColor blackColor];
+            
+            subTitle.placeholder = @"Subtitle Name";
+            subTitle.returnKeyType = UIReturnKeyDone;
+            
+            subTitle.backgroundColor = [UIColor clearColor];
+            subTitle.autocorrectionType = UITextAutocorrectionTypeNo;
+            subTitle.autocapitalizationType = UITextAutocapitalizationTypeNone;
+            subTitle.tag = 0;
+            [subTitle addTarget:self
+                        action:@selector(textFieldFinished:)
+              forControlEvents:UIControlEventEditingDidEndOnExit];
+            subTitle.clearButtonMode = UITextFieldViewModeNever;
+            [subTitle setEnabled: YES];
+            subTitle.text = _subtitleTextfield.text;
+            [cell.contentView addSubview:subTitle];
+            cell.textLabel.text = @"SubTitle";
+            cell.textLabel.backgroundColor = [UIColor clearColor];
+            
+            
+        }
+        
+   // }
+    
+    
+    return cell;
+}
+
+
+- (IBAction)textFieldFinished:(id)sender
+{
+    [sender resignFirstResponder];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //TitleLoop = [menuitems objectAtIndex:indexPath.row];
+   // NSString *selectedDetails = [TitleLoop objectForKey:@"content"];
+   // [[NSUserDefaults standardUserDefaults] setValue:selectedDetails forKey:@"SelectedContent"];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO]; 
+    [self performSegueWithIdentifier:@"isAddGeoPinViewController" sender:self];
+}
+
+-(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath {
+    
+	if(indexPath.section == 0){
+        
+        return 100.0;
+    }
+    return 40;
+}
+
 
 @end
