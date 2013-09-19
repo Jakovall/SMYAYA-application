@@ -78,6 +78,11 @@ static NSMutableArray *Geolocations;
     return Geolocations;
 }
 
++(void)removeGeolocations:(NSIndexPath*)indexpath{
+    
+    [Geolocations removeObjectAtIndex:indexpath.row];
+}
+
 
 -(NSString*)title {
     return nil;

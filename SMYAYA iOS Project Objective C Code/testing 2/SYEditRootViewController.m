@@ -78,6 +78,10 @@ typedef NS_ENUM(NSInteger, SYEditRootCell) {
 }
 -(void) viewWillAppear:(BOOL)animated{
     [tableView reloadData];
+    [[SYDataProvider sharedDataProvider] geoItems];
+    NSArray* _geoItems = [SYDataProvider getGeolocations];
+    
+    [Utility addGeoItemsCount:[_geoItems count]];
 }
 
 - (void)saveButtonHandle:(id)saveButton
@@ -217,7 +221,7 @@ typedef NS_ENUM(NSInteger, SYEditRootCell) {
             returnString = [[NSUserDefaults standardUserDefaults] valueForKey:@"NewsURL"];
             break;
         case SYEditRootCellGeoItems:
-            returnString = @"5 items";
+            returnString = [NSString stringWithFormat:@"%d items", (int)[Utility getGeoItemsCount]];
             break;
         case SYEditRootCellSocialMedia:
             returnString = @"3 services";

@@ -41,5 +41,6 @@
 
 +(void)addPageUrl:(NSString*)data;
 +(NSString*)getPageUrl;
-
++(void)addGeoItemsCount:(NSInteger*)data;
++(NSInteger*)getGeoItemsCount;
 @end

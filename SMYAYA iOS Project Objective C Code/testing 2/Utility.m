@@ -27,6 +27,8 @@ NSIndexPath *indexPath;
 NSString *selectedOrgTitle;
 NSInteger* homeItems;
 
+NSInteger* geoItems;
+
 NSString* pageUrl;
 
 +(void)addStreet:(NSString*)data{
@@ -103,6 +105,14 @@ NSString* pageUrl;
 }
 +(NSInteger*)getHomeItemsCount{
     return homeItems;
+}
+
+
++(void)addGeoItemsCount:(NSInteger*)data{
+    geoItems = data;
+}
++(NSInteger*)getGeoItemsCount{
+    return geoItems;
 }
 
 +(void)addPageUrl:(NSString*)data{
