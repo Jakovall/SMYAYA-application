@@ -14,6 +14,7 @@
 @interface SYEditAddGeoPinViewController : UIViewController<MKMapViewDelegate,UITextFieldDelegate> {
     CLGeocoder *_geocoder;
     IBOutlet MKMapView *geoPin;
+    UIButton *dot;
 }
 - (IBAction)showGeoLocation:(id)sender;
 

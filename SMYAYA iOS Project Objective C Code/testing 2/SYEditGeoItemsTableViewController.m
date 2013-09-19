@@ -27,7 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _geoItems = [[SYDataProvider sharedDataProvider] geoItems];
+   // _geoItems = [[SYDataProvider sharedDataProvider] geoItems];
+    [[SYDataProvider sharedDataProvider] geoItems];
+    _geoItems = [SYDataProvider getGeolocations];
     __weak SYEditGeoItemsTableViewController* weakSelf = self;
     self.updateGewItemsBlock = ^(NSArray* newGeoItems){
         weakSelf.geoItems = newGeoItems;
@@ -37,6 +39,13 @@
     self.tableView.editing = YES;
     self.tableView.allowsSelectionDuringEditing = YES;
     self.title = @"Geo items";
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [Utility addGeoItemsCount:[_geoItems count]];
+    
+    //NSLog(@"count of geo items is %i",[Utility getGeoItemsCount]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,6 +84,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSMutableArray* mutableGeoItems = [NSMutableArray arrayWithArray:_geoItems];
         [mutableGeoItems removeObjectAtIndex:indexPath.row];
+        [SYDataProvider removeGeolocations:indexPath];
+        [Utility addGeoItemsCount:[_geoItems count]];
         self.updateGewItemsBlock(mutableGeoItems);
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -127,6 +138,7 @@
         };
         NSAssert(_selectedGeoItem, @"selected geo item must be setted");
         editGeoItemViewController.geoItem = _selectedGeoItem;
+            NSLog(@"selected item is %@",_selectedGeoItem);
         }
         else{
             

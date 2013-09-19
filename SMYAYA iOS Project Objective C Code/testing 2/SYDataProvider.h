@@ -19,5 +19,8 @@
 
 +(void)addGeolocations:(NSMutableArray*)data;
 +(NSMutableArray*)getGeolocations;
++(void)removeGeolocations:(NSIndexPath*)indexpath;
+
+
 
 @end

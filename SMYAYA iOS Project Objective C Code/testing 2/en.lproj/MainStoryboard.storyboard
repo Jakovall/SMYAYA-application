@@ -958,11 +958,14 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="hdv-Qu-yxj">
                         <barButtonItem key="leftBarButtonItem" title="Revise" id="O5L-zW-fe4">
+                            <inset key="imageInsets" minX="-20" minY="-1" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" red="0.86691151494565211" green="0.032107833886876047" blue="0.032107833886876047" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="reviseGeoPin:" destination="6Wi-aj-FSo" id="2ed-0U-IFB"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Accept" id="GtX-9v-toO">
+                            <color key="tintColor" red="0.040033421342421632" green="0.69476052989130432" blue="0.16103610049825567" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="acceptGeoPin:" destination="6Wi-aj-FSo" id="4v9-N0-4Za"/>
                             </connections>
@@ -1261,6 +1264,161 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
         <image name="nowIcon.png" width="28" height="23"/>
         <image name="schemaIcon.png" width="26" height="26"/>
     </resources>
+    <classes>
+        <class className="CustomisDetailView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomisDetailView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentOutlet" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="CustomisTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomisTableView.h"/>
+        </class>
+        <class className="FunView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FunView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="FunWeb" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="MeView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="PrefsListTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="backgroundImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NowView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NowView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="NowWeb" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="PrefsTable" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrefsTable.h"/>
+            <relationships>
+                <relationship kind="outlet" name="BackgroundPref" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SYEditAddGeoPinViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditAddGeoPinViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelGeoPin:"/>
+                <relationship kind="action" name="saveGeoPin:"/>
+                <relationship kind="action" name="showGeoLocation:"/>
+                <relationship kind="action" name="textFieldFinished:"/>
+                <relationship kind="outlet" name="addressTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="city" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="country" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="geoPin" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="street" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SYEditAddSocialNetworkViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditAddSocialNetworkViewController.h"/>
+        </class>
+        <class className="SYEditForwardGeoMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditForwardGeoMapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="acceptGeoPin:"/>
+                <relationship kind="action" name="reviseGeoPin:"/>
+                <relationship kind="outlet" name="geoPin" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="SYEditGeoItemViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditGeoItemViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="textFieldFinished:"/>
+                <relationship kind="outlet" name="_subtitleTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="_titleTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="addressInfo" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="tableViews" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SYEditGeoItemsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditGeoItemsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addGeoItems:"/>
+            </relationships>
+        </class>
+        <class className="SYEditHomeItemViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditHomeItemViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="SYEditHomeItemsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditHomeItemsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addHomeItems:"/>
+            </relationships>
+        </class>
+        <class className="SYEditRootViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditRootViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SYEditSocialMediaViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditSocialMediaViewController.h"/>
+        </class>
+        <class className="SYEditTextViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditTextViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="previewUrl:"/>
+                <relationship kind="action" name="textFieldFinished:"/>
+                <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="_textView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="_webView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="nowUrl" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SYOrganizationTypeTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SYOrganizationTypeTableViewController.h"/>
+        </class>
+        <class className="ThemeDownloadView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThemeDownloadView.h"/>
+            <relationships>
+                <relationship kind="action" name="DownloadAction:"/>
+                <relationship kind="action" name="LowerKeyboard:"/>
+                <relationship kind="outlet" name="DownloadLink" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="UserProfileSettings" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserProfileSettings.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ProfileSelect" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="aboutView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/aboutView.h"/>
+        </class>
+        <class className="personalInfo" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/personalInfo.h"/>
+            <relationships>
+                <relationship kind="action" name="saveName:"/>
+                <relationship kind="outlet" name="nameValue" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="smyayaViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/smyayaViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="pinSetter" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="willItBlendViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/willItBlendViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="blendIt" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

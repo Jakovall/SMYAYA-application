@@ -53,8 +53,12 @@
     [super viewWillDisappear:animated];
     NSLog(@"dissaper");
     NSLog(@"self is dis%@",self);
-   [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [dot removeFromSuperview];
+    dot = nil;
+ //  [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }
+
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -95,6 +99,7 @@
                               action:@selector(textFieldFinished:)
                     forControlEvents:UIControlEventEditingDidEndOnExit];
             street.clearButtonMode = UITextFieldViewModeNever;
+            street.text = [Utility getStreet];
             [street setEnabled: YES];
             [street becomeFirstResponder];
             [cell.contentView addSubview:street];
@@ -123,6 +128,7 @@
                     forControlEvents:UIControlEventEditingDidEndOnExit];
             city.clearButtonMode = UITextFieldViewModeNever;
             [city setEnabled: YES];
+            city.text = [Utility getCity];
             
             [cell.contentView addSubview:city];
             cell.textLabel.text = @"City";
@@ -148,7 +154,7 @@
                     forControlEvents:UIControlEventEditingDidEndOnExit];
             country.clearButtonMode = UITextFieldViewModeNever;
             [country setEnabled: YES];
-            
+            country.text = [Utility getCountry];
             [cell.contentView addSubview:country];
             cell.textLabel.text = @"Country";
 
@@ -184,7 +190,7 @@
             {
                 
                
-                UIButton *dot = [UIButton buttonWithType:UIButtonTypeCustom];
+                dot = [UIButton buttonWithType:UIButtonTypeCustom];
 				dot.frame = CGRectMake(228, 167, 106, 53);
 				[dot setImage:[UIImage imageNamed:@"find.PNG"] forState:UIControlStateNormal];
 				[dot setImage:[UIImage imageNamed:@"find.PNG"] forState:UIControlStateHighlighted];
@@ -225,6 +231,7 @@
 }
 
 - (IBAction)showGeoLocation:(id)sender{
+   
     
     [self performSegueWithIdentifier:@"toEditForwardGeoMapViewController" sender:self];
     //[street resignFirstResponder];
@@ -322,6 +329,7 @@
     NSLog(@"street set value1 %@",street.text);
     NSLog(@"street set value %@",[info getdataval]);*/
    // Utility* info;
+    
     [Utility addStreet:street.text];
     [Utility addCity:city.text];
     [Utility addCountry:country.text];
@@ -330,6 +338,10 @@
     [self dismissViewControllerAnimated:YES
                              completion:nil];
        
+}
+
+-(void) dealloc {
+   // [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

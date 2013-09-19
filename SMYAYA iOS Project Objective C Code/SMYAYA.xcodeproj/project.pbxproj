@@ -77,6 +77,8 @@
 		EB9E254A17E8245400405359 /* SYEditForwardGeoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9E254917E8245300405359 /* SYEditForwardGeoMapViewController.m */; };
 		EBA2562117E86E7E005142E3 /* find.PNG in Resources */ = {isa = PBXBuildFile; fileRef = EBA2562017E86E7E005142E3 /* find.PNG */; };
 		EBA2562417E95D4B005142E3 /* SYEditHomeItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA2562317E95D4B005142E3 /* SYEditHomeItemViewController.m */; };
+		EBA2563017E9D69A005142E3 /* accept.png in Resources */ = {isa = PBXBuildFile; fileRef = EBA2562F17E9D69A005142E3 /* accept.png */; };
+		EBA2563217E9D6B8005142E3 /* revise.png in Resources */ = {isa = PBXBuildFile; fileRef = EBA2563117E9D6B8005142E3 /* revise.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -190,6 +192,8 @@
 		EBA2562017E86E7E005142E3 /* find.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find.PNG; sourceTree = "<group>"; };
 		EBA2562217E95D4B005142E3 /* SYEditHomeItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditHomeItemViewController.h; sourceTree = "<group>"; };
 		EBA2562317E95D4B005142E3 /* SYEditHomeItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditHomeItemViewController.m; sourceTree = "<group>"; };
+		EBA2562F17E9D69A005142E3 /* accept.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accept.png; sourceTree = "<group>"; };
+		EBA2563117E9D6B8005142E3 /* revise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = revise.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +270,8 @@
 		52679F13175A5852005D8722 = {
 			isa = PBXGroup;
 			children = (
+				EBA2563117E9D6B8005142E3 /* revise.png */,
+				EBA2562F17E9D69A005142E3 /* accept.png */,
 				EBA2562017E86E7E005142E3 /* find.PNG */,
 				578EF49517E179A200F56388 /* check.png */,
 				5292672617797B8900A614D6 /* graphic.png */,
@@ -500,6 +506,8 @@
 				250D570617D625AE0038E542 /* SYTextFieldCell.xib in Resources */,
 				578EF49617E179A200F56388 /* check.png in Resources */,
 				EBA2562117E86E7E005142E3 /* find.PNG in Resources */,
+				EBA2563017E9D69A005142E3 /* accept.png in Resources */,
+				EBA2563217E9D6B8005142E3 /* revise.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

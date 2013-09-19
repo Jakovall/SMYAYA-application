@@ -72,17 +72,31 @@
     // street = [info getdataval];
     
     // Utility* info;
-    street = [Utility getStreet];
-    city = [Utility getCity];
-    country = [Utility getCountry];
-    latitude = [Utility getLatitude];
-    longitude = [Utility getLongitude];
+    if(geoItem){
+        street = [geoItem valueForKey:@"street"];
+        city = [geoItem valueForKey:@"city"];
+        country = [geoItem valueForKey:@"country"];
+        latitude = [geoItem valueForKey:@"geolat"];
+        longitude = [geoItem valueForKey:@"geolong"];
+    
+    }else{
+        
+        street = [Utility getStreet];
+        city = [Utility getCity];
+        country = [Utility getCountry];
+        latitude = [Utility getLatitude];
+        longitude = [Utility getLongitude];
+    }
+    
+    
+    
+    
     addressInfo.hidden = YES;
     if([street length]!=0 || [city length]!=0 || [country length]!=0 || [latitude length]!=0 || [longitude length]!=0){
         addressInfo.hidden = NO;
         addressInfo.text = [NSString stringWithFormat:@"street:%@\ncity:%@\ncountry:%@\nlatitude:%@\nlongitude%@",street,city,country,latitude,longitude];
     }
-    NSLog(@"street value is %@,city%@,country%@,lat %@,lon %@", street,city,country,latitude,longitude);
+    NSLog(@"street value is %@,city%@,country%@,lat %@,lon %@", [geoItem valueForKey:@"street"],city,country,latitude,longitude);
   // [self.tableViews reloadSections:0 withRowAnimation:UITableViewRowAnimationNone];
     [tableViews reloadData];
    
@@ -114,20 +128,45 @@
 }
 
 -(void)saveButtonHandle:(id)sender{
+    if([street length]!=0 || [city length]!=0 || [country length]!=0 || [latitude length]!=0 || [longitude length]!=0){
+        addressInfo.hidden = NO;
+        addressInfo.text = [NSString stringWithFormat:@"street:%@\ncity:%@\ncountry:%@\nlatitude:%@\nlongitude%@",street,city,country,latitude,longitude];
+    }
     
+    if(([addressInfo.text length] != 0) && ([titles.text length] !=0) && ([subTitle.text length] !=0)){
     NSLog(@"saved data %@",titles.text);
     NSMutableDictionary* geoLocationItems = [[NSMutableDictionary alloc]init];
-    
+        if(street == nil){
+            
+            street =@"";
+        }
+        if(city == nil){
+            city =@"";
+        }
+        if(country == nil ){
+            
+            country = @"";
+        }
     [geoLocationItems setObject:[Utility getLatitude]  forKey:@"geolat"];
     [geoLocationItems setObject:[Utility getLongitude]  forKey:@"geolong"];
     [geoLocationItems setObject:titles.text  forKey:@"subtitle"];
     [geoLocationItems setObject:subTitle.text  forKey:@"title"];
+    [geoLocationItems setObject:street  forKey:@"street"];
+    [geoLocationItems setObject:city  forKey:@"city"];
+    [geoLocationItems setObject:country  forKey:@"country"];
+        
     
     NSLog(@"geolocations %@", geoLocationItems);
     
     [SYDataProvider addGeolocations:(NSMutableArray*)geoLocationItems];
     [self.parentViewController dismissViewControllerAnimated:YES
                              completion:nil];
+    }
+    else{
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Please select a location, a title, and a subtitle." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        
+    }
     
 }
 
@@ -239,7 +278,11 @@
     //TitleLoop = [menuitems objectAtIndex:indexPath.row];
    // NSString *selectedDetails = [TitleLoop objectForKey:@"content"];
    // [[NSUserDefaults standardUserDefaults] setValue:selectedDetails forKey:@"SelectedContent"];
-    [tableView deselectRowAtIndexPath:indexPath animated:NO]; 
+    [Utility addStreet:[geoItem valueForKey:@"street"]];
+    [Utility addCity:[geoItem valueForKey:@"city"]];
+    [Utility addCountry:[geoItem valueForKey:@"country"]];
+
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [self performSegueWithIdentifier:@"isAddGeoPinViewController" sender:self];
 }
 

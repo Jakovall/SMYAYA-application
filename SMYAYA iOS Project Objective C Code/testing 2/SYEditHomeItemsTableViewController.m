@@ -46,7 +46,13 @@
     self.tableView.editing = YES;
     self.tableView.allowsSelectionDuringEditing = YES;
     self.title = @"Home Items";
+    
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    
     [Utility addHomeItemsCount:[_menuItems count]];
+    
 }
 
 - (void)didReceiveMemoryWarning
