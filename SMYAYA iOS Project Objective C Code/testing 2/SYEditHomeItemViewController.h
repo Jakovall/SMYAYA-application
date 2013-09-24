@@ -12,7 +12,12 @@ typedef void(^SYEditItemViewControllerTextChangedBlock)(NSString* newText);
 @interface SYEditHomeItemViewController : UIViewController{
     
     __weak IBOutlet UITextView *_textView;
+    UIWebView *webView;
 }
 @property (readwrite, copy) SYEditItemViewControllerTextChangedBlock textChangedBlock;
 @property (readwrite, copy) NSString*   initialText;
+
+
+- (IBAction)saveHomeData:(id)sender;
+- (IBAction)cancelHomeData:(id)sender;
 @end

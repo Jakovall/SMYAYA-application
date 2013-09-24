@@ -1004,7 +1004,20 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                             <constraint firstItem="ht8-cQ-m9b" firstAttribute="leading" secondItem="1mK-ry-dZv" secondAttribute="leading" type="default" id="wIB-fi-G0g"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="flf-oC-1LI"/>
+                    <navigationItem key="navigationItem" id="flf-oC-1LI">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="nct-Xm-jb6">
+                            <color key="tintColor" red="0.86691151489999996" green="0.03210783389" blue="0.03210783389" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelHomeData:" destination="1CM-n4-Ww3" id="hBi-gk-ZQa"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Accept" id="vjf-ke-edf">
+                            <color key="tintColor" red="0.04003342134" green="0.69476052990000003" blue="0.1610361005" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="saveHomeData:" destination="1CM-n4-Ww3" id="asG-fZ-Euh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="_textView" destination="ht8-cQ-m9b" id="ltt-6O-uUI"/>
                     </connections>
@@ -1308,7 +1321,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                 <relationship kind="action" name="cancelGeoPin:"/>
                 <relationship kind="action" name="saveGeoPin:"/>
                 <relationship kind="action" name="showGeoLocation:"/>
-                <relationship kind="action" name="textFieldFinished:"/>
                 <relationship kind="outlet" name="addressTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="city" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="country" candidateClass="UITextField"/>
@@ -1332,7 +1344,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
         <class className="SYEditGeoItemViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditGeoItemViewController.h"/>
             <relationships>
-                <relationship kind="action" name="textFieldFinished:"/>
                 <relationship kind="outlet" name="_subtitleTextfield" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="_titleTextfield" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="addressInfo" candidateClass="UITextView"/>
@@ -1348,6 +1359,8 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
         <class className="SYEditHomeItemViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditHomeItemViewController.h"/>
             <relationships>
+                <relationship kind="action" name="cancelHomeData:"/>
+                <relationship kind="action" name="saveHomeData:"/>
                 <relationship kind="outlet" name="_textView" candidateClass="UITextView"/>
             </relationships>
         </class>
@@ -1360,6 +1373,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
         <class className="SYEditRootViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditRootViewController.h"/>
             <relationships>
+                <relationship kind="action" name="textFieldFinished:"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
@@ -1370,7 +1384,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditTextViewController.h"/>
             <relationships>
                 <relationship kind="action" name="previewUrl:"/>
-                <relationship kind="action" name="textFieldFinished:"/>
                 <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="_textView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="_webView" candidateClass="UIWebView"/>
