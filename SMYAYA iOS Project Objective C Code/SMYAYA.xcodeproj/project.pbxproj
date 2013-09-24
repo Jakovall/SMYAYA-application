@@ -71,6 +71,8 @@
 		BFC2387F177396F200FFAB12 /* ThemeDownloadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC2387E177396F200FFAB12 /* ThemeDownloadView.m */; };
 		BFE5ACF5176683BE00D3551E /* NowView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE5ACF4176683BD00D3551E /* NowView.m */; };
 		BFE5ACFA17668ED000D3551E /* www in Resources */ = {isa = PBXBuildFile; fileRef = BFE5ACF917668ED000D3551E /* www */; };
+		EB756B2C17F162E700B00F67 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = EB756B2A17F162E700B00F67 /* index.html */; };
+		EB756B2D17F162E700B00F67 /* js in Resources */ = {isa = PBXBuildFile; fileRef = EB756B2B17F162E700B00F67 /* js */; };
 		EB9E23E717E34BA300405359 /* SYEditAddGeoPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9E23E617E34BA300405359 /* SYEditAddGeoPinViewController.m */; };
 		EB9E23EA17E34BDD00405359 /* Geopin.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9E23E917E34BDD00405359 /* Geopin.m */; };
 		EB9E23EC17E34D7B00405359 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9E23EB17E34D7B00405359 /* CoreLocation.framework */; };
@@ -182,6 +184,8 @@
 		BFE5ACF3176683BD00D3551E /* NowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowView.h; sourceTree = "<group>"; };
 		BFE5ACF4176683BD00D3551E /* NowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowView.m; sourceTree = "<group>"; };
 		BFE5ACF917668ED000D3551E /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		EB756B2A17F162E700B00F67 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		EB756B2B17F162E700B00F67 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		EB9E23E517E34BA300405359 /* SYEditAddGeoPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditAddGeoPinViewController.h; sourceTree = "<group>"; };
 		EB9E23E617E34BA300405359 /* SYEditAddGeoPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditAddGeoPinViewController.m; sourceTree = "<group>"; };
 		EB9E23E817E34BDD00405359 /* Geopin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geopin.h; sourceTree = "<group>"; };
@@ -307,6 +311,7 @@
 		52679F28175A5852005D8722 /* testing 2 */ = {
 			isa = PBXGroup;
 			children = (
+				EB756A4417F15BBC00B00F67 /* Resources */,
 				250D570117D6256A0038E542 /* Views */,
 				25B958CD17D3628F0089DDA8 /* Model */,
 				25B958C917D361350089DDA8 /* EditViewControllers */,
@@ -429,6 +434,15 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		EB756A4417F15BBC00B00F67 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EB756B2A17F162E700B00F67 /* index.html */,
+				EB756B2B17F162E700B00F67 /* js */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -508,6 +522,8 @@
 				EBA2562117E86E7E005142E3 /* find.PNG in Resources */,
 				EBA2563017E9D69A005142E3 /* accept.png in Resources */,
 				EBA2563217E9D6B8005142E3 /* revise.png in Resources */,
+				EB756B2C17F162E700B00F67 /* index.html in Resources */,
+				EB756B2D17F162E700B00F67 /* js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
