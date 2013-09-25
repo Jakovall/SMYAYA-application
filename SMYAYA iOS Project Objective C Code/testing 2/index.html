@@ -1,20 +1,42 @@
 <head>
-<script src="js/tinymce/tinymce.min.js"></script>
-<script type="text/javascript">
-   
+    <script src="js/tinymce/tinymce.min.js"></script>
+    <style>
+        body{
+            padding:0;
+            margin:0;
+            
+        }
+        </style>
     
-tinymce.init({
-    selector: "textarea",
-    toolbar: "undo redo | styleselect | bold italic | link image",
-    menubar : false
- });
+    <script type="text/javascript">
+        tinyMCE.init({
+                     selector: "textarea",
+                     toolbar: "styleselect",
+                     menubar : false,
+                     statusbar: false,
+                     plugins : "fullscreen"
+                     });
+        
+        
+        function doFullScreen(){
+            tinyMCE.execCommand('mceFullScreen');
+        }
+        
+        function getStringToSave(){
+            return tinymce.get('area1').getContent();
+        }
+        
+        
+        </script>
     
     
-    </script>
+    
 </head>
-<body>
-      
-<form method="post">
-    <textarea></textarea>
-</form>
+<body onload="doFullScreen()">
+   <!--  <a href="#" onclick="javascript:alert(getStringToSave())">[Show the HTML]</a> -->
+    
+    <form method="post">
+        <textarea id="area1""></textarea>
+    </form>
+    
 </body>
