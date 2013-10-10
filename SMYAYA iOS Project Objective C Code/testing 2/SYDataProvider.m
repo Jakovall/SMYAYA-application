@@ -17,6 +17,7 @@
 
 
 static NSMutableArray *Geolocations;
+static NSMutableArray *HomeItems;
 
 +(instancetype)sharedDataProvider {
     static dispatch_once_t onceToken;
@@ -52,7 +53,26 @@ static NSMutableArray *Geolocations;
         return nil;
     }
     NSDictionary *menuDiction = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-    return [menuDiction objectForKey:@"menuitems"];
+   // return [menuDiction objectForKey:@"menuitems"];
+    if(HomeItems == nil){
+        HomeItems = [[NSMutableArray alloc]init];
+        HomeItems = [menuDiction objectForKey:@"menuitems"]; //makes a multidimensional array using one of the arra
+    }
+    return HomeItems;
+    
+}
+
+
++(void)addHomeItem:(NSMutableArray*)data{
+    [HomeItems addObject:data];
+}
+
++(NSMutableArray*)getHomeItem{
+    return HomeItems;
+}
+
++(void)removeHomeItem:(NSIndexPath*)indexpath{
+    [HomeItems removeObjectAtIndex:indexpath.row];
 }
 
 
@@ -62,7 +82,6 @@ static NSMutableArray *Geolocations;
     NSData *myData = [[NSData alloc]initWithContentsOfFile:geoPath]; //takes the data from the file in the "FeedURLPath" directory
     NSDictionary *myJSON = [NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingMutableContainers error:nil]; //makes a dictionary (kinda like an array ({}) using the data from "myData")
     if(Geolocations == nil){
-        NSLog(@"sdafadsf");
         Geolocations = [[NSMutableArray alloc]init];
       Geolocations = [myJSON objectForKey:@"geolocations"]; //makes a multidimensional array using one of the arra
     }
@@ -82,6 +101,9 @@ static NSMutableArray *Geolocations;
     
     [Geolocations removeObjectAtIndex:indexpath.row];
 }
+
+
+
 
 
 -(NSString*)title {

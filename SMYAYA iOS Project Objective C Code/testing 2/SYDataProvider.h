@@ -21,6 +21,10 @@
 +(NSMutableArray*)getGeolocations;
 +(void)removeGeolocations:(NSIndexPath*)indexpath;
 
++(void)addHomeItem:(NSMutableArray*)data;
++(NSMutableArray*)getHomeItem;
++(void)removeHomeItem:(NSIndexPath*)indexpath;
+
 
 
 @end

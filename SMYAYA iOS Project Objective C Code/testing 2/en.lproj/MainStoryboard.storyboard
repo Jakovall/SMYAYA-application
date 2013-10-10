@@ -981,6 +981,21 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
             </objects>
             <point key="canvasLocation" x="5155" y="-1664"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aio-Bc-qMS">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="HNa-Hn-jp5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wlf-lw-n5e">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1CM-n4-Ww3" kind="relationship" relationship="rootViewController" id="yDA-jD-Q58"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xts-zi-chC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3784" y="-3058"/>
+        </scene>
         <!--Edit Home Item View Controller-->
         <scene sceneID="qgE-wB-OtM">
             <objects>
@@ -1024,7 +1039,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adh-Kd-vkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4063" y="-3052"/>
+            <point key="canvasLocation" x="4126" y="-3068"/>
         </scene>
         <!--Edit Text View Controller-->
         <scene sceneID="rE4-gK-i0n">
@@ -1088,7 +1103,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDd-Ca-BG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3949" y="-2383"/>
+            <point key="canvasLocation" x="4022" y="-2311"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pp5-ED-q7r">
@@ -1167,7 +1182,7 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="1CM-n4-Ww3" kind="push" identifier="toEditHomeItemViewController" id="LAw-xl-zfY"/>
+                        <segue destination="HNa-Hn-jp5" kind="modal" identifier="toEditHomeItemViewController" id="JqZ-qE-ftY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9p-FO-iby" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1373,7 +1388,6 @@ This project is dedicated to Bishop Persico of Erie for the purpose of evangeliz
         <class className="SYEditRootViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SYEditRootViewController.h"/>
             <relationships>
-                <relationship kind="action" name="textFieldFinished:"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>

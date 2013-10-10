@@ -7,13 +7,15 @@
 //
 
 #import "SYEditHomeItemViewController.h"
+#import "SYDataProvider.h"
 
 @interface SYEditHomeItemViewController ()
-
+@property (readwrite, strong) NSMutableArray*  menuItems;
 @end
 
 @implementation SYEditHomeItemViewController
 @synthesize initialText = _initialText, textChangedBlock = _textChangedBlock;
+@synthesize menuItems = _menuItems,timer,rowIndex,rowTitle = _rowTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,28 +33,32 @@
     _textView.text = _initialText;
     webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0,self.view.frame.size.width,
                                                                      self.view.frame.size.height)];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"]isDirectory:NO]]];
     
-  //  NSString *indexPath = [NSBundle pathForResource:@"hello" ofType:@"html" inDirectory:nil];
-  //  [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:indexPath]]];
-  //  [self.view addSubview:webView];
-    
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html"];
-    NSError *error;
-    NSString *contentString = [NSString stringWithContentsOfURL:url encoding:NSStringEncodingConversionAllowLossy error:&error];
-    
-     contentString = [contentString stringByReplacingOccurrencesOfString:@"<textarea></textarea>" withString:[NSString stringWithFormat:@"<textarea>%@</textarea>",_initialText]];
-    NSURL *baseUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
-    
-
-    [webView loadHTMLString:contentString baseURL:baseUrl];
-   // [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"]isDirectory:NO]]];
-    
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.1
+                                     target:self
+                                   selector:@selector(contentLoadMethod:)
+                                   userInfo:nil
+                                    repeats:YES];
+    webView.delegate=self;
     [self.view addSubview:webView];
     
     
     
 }
+-(void)contentLoadMethod:(id)sender{
+    if(webView.loading){
+ 
+        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setStringToDisplay('%@')",_initialText]];
+        NSString* contentData =  [webView stringByEvaluatingJavaScriptFromString:@"getStringToSave()"];
+        if(contentData.length >0){
+            [timer invalidate];
+            timer =nil;
+        }
+       
 
+    }
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     if (![_initialText isEqualToString:_textView.text]) {
@@ -69,10 +75,15 @@
 }
 
 - (IBAction)saveHomeData:(id)sender{
+    _menuItems = [SYDataProvider getHomeItem];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     
-    NSLog(@"editor content is %@",[webView stringByEvaluatingJavaScriptFromString:@"tinymce.activeEditor.getContent()"]);
+    [dic setObject:[webView stringByEvaluatingJavaScriptFromString:@"getStringToSave()"] forKey: @"content"];
+    [dic setObject: _rowTitle forKey: @"title"];
+    [_menuItems replaceObjectAtIndex:rowIndex.row
+                            withObject:dic];
     [self dismissViewControllerAnimated:YES completion:nil];
-    
+       
 }
 
 - (IBAction)cancelHomeData:(id)sender{

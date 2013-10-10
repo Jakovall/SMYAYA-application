@@ -10,9 +10,11 @@
 #import "SYEditTextViewController.h"
 #import "SYDataProvider.h"
 #import "Utility.h"
+#import "SYEditHomeItemViewController.h"
 
 @interface SYEditHomeItemsTableViewController () {
     NSDictionary*   _selectedItem;
+    NSIndexPath* rowValue;
 }
 
 @property (readwrite, strong) NSMutableArray*  menuItems;
@@ -37,7 +39,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _menuItems = [[SYDataProvider sharedDataProvider] menuItems];
+    
+   // _menuItems = [[SYDataProvider sharedDataProvider] menuItems];
+    [[SYDataProvider sharedDataProvider] menuItems];
+    _menuItems = [SYDataProvider getHomeItem];
     __weak SYEditHomeItemsTableViewController* weakSelf = self;
     self.updateMenuItemsBlock = ^(NSArray* newItemsBlock) {
         weakSelf.menuItems = newItemsBlock;
@@ -111,6 +116,8 @@
         // Delete the row from the data source
         NSMutableArray* mutableItems = [NSMutableArray arrayWithArray:_menuItems];
         [mutableItems removeObjectAtIndex:indexPath.row];
+        [SYDataProvider removeHomeItem:indexPath];
+        [Utility addHomeItemsCount:[_menuItems count]];
         self.updateMenuItemsBlock(mutableItems);
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
@@ -152,6 +159,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    rowValue = indexPath;
     [self openEditViewControllerForItem:_menuItems[indexPath.row]];
 }
 
@@ -159,9 +167,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"toEditHomeItemViewController"]) {
-        SYEditTextViewController* editItemViewController = segue.destinationViewController;
+        UINavigationController* navigationController = segue.destinationViewController;
+        SYEditHomeItemViewController* editItemViewController = (SYEditHomeItemViewController*)navigationController.viewControllers[0];
+        //SYEditHomeItemViewController* editItemViewController = segue.destinationViewController;
         editItemViewController.title = _selectedItem[@"title"];
         editItemViewController.initialText = _selectedItem[@"content"];
+        editItemViewController.rowIndex = rowValue;
+        editItemViewController.rowTitle = _selectedItem[@"title"];
         editItemViewController.textChangedBlock = ^(NSString* newText) {
             NSMutableDictionary* mutableItem = [NSMutableDictionary dictionaryWithDictionary:_selectedItem];
             [mutableItem setObject:newText forKey:@"content"];
@@ -186,7 +198,9 @@
     
     [dic setObject:@"New" forKey: @"content"];
     [dic setObject: @"New" forKey: @"title"];
-    [_menuItems addObject:dic];
+    //[_menuItems addObject:dic];
+    
+    [SYDataProvider addHomeItem:(NSMutableArray*)dic];
     
     [self.tableView reloadData];
 
